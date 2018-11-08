@@ -225,7 +225,7 @@ h3 {
 h4 {
   font-size: 14px !important;
   font-weight: 700 !important;
-  color: #1E1E1E;
+  color: #1E1E1E !important;
   text-transform: uppercase; }
 
 p.x-small {
@@ -668,8 +668,17 @@ header {
     padding: 0px; }
   .divertissement .col-md-2 {
     padding: 0px 20px 0px 0px; }
+  .divertissement .col-md-12 {
+    margin-bottom: 20px; }
   .divertissement .item-divertissement {
     margin-bottom: 20px; }
+    .divertissement .item-divertissement a {
+      color: #1E1E1E; }
+    .divertissement .item-divertissement .link {
+      font-size: 13px;
+      line-height: 20px; }
+      .divertissement .item-divertissement .link a {
+        color: #b3b3b3; }
   .divertissement i.color {
     color: #FECC00; }
   .divertissement i.normal {
@@ -687,5 +696,22 @@ header {
       margin-bottom: 5px; }
   .divertissement .large {
     height: 37px; }
+
+.stars {
+  padding-right: 20px;
+  padding-left: 20px; }
+  .stars .col-md-2 {
+    padding: 0px 20px 0px 0px; }
+  .stars .col-md-12 {
+    margin-bottom: 20px; }
+
+.exclu .row p {
+  margin: auto; }
+.exclu .col-md-12 {
+  margin-top: 20px; }
+  .exclu .col-md-12 h4 {
+    text-align: center; }
+.exclu .my-video-dimensions {
+  width: 100%; }
 
 /*# sourceMappingURL=application.css.map */

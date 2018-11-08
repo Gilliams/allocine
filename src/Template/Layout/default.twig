@@ -1005,7 +1005,37 @@
                         <div class="row">
                             <h4>Nouveaux films en VOD</h4>
                         </div>
+                        <div class="row link">
+                            {{ Html.link(__('Dogman VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('À la dérive VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Woman at War VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('American Nightmare 4 : Les Origines VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Indestructibles 2 VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Un Couteau Dans le Coeur VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Ma fille VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Affamés VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                        </div>
+                    </div>
+                    <div class="item-divertissement">
                         <div class="row">
+                            <h4>Meilleurs films en VOD</h4>
+                        </div>
+                        <div class="row link">
+                            {{ Html.link(__('Dogman VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('À la dérive VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Woman at War VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('American Nightmare 4 : Les Origines VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Indestructibles 2 VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Un Couteau Dans le Coeur VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Ma fille VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Affamés VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                        </div>
+                    </div>
+                    <div class="item-divertissement">
+                        <div class="row">
+                            <h4>Tous les films en VOD</h4>
+                        </div>
+                        <div class="row link">
                             {{ Html.link(__('Dogman VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
                             {{ Html.link(__('À la dérive VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
                             {{ Html.link(__('Woman at War VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
@@ -1016,14 +1046,168 @@
                             {{ Html.link(__('Les Affamés VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
                         </div>
                         <div class="row">
-                            {{ Html.link(__('Voir le programme TV de ce soir'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                            {{ Html.link(__('Voir tous les films en VOD'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="item-divertissement">
+                        <div class="row">
+                            <h3>{{ Html.link(__('sorties dvd/blu-ray'), {'controller':'Movie', 'action': 'list'})|raw }}</h3>
+                        </div>
+                        <div class="row">
+                            <h4>Nouveaux films en DVD/BLU-RAY</h4>
+                        </div>
+                        <div class="row link">
+                            {{ Html.link(__('Dogman VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('À la dérive VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Woman at War VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('American Nightmare 4 : Les Origines VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Indestructibles 2 VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Un Couteau Dans le Coeur VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Ma fille VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Affamés VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                        </div>
+                    </div>
+                    <div class="item-divertissement">
+                        <div class="row">
+                            <h4>Meilleurs films en DVD/BLU-RAY</h4>
+                        </div>
+                        <div class="row link">
+                            {{ Html.link(__('Dogman VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('À la dérive VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Woman at War VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('American Nightmare 4 : Les Origines VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Indestructibles 2 VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Un Couteau Dans le Coeur VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Ma fille VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Affamés VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                        </div>
+                    </div>
+                    <div class="item-divertissement">
+                        <div class="row">
+                            <h4>Tous les films en DVD/BLU-RAY</h4>
+                        </div>
+                        <div class="row link">
+                            {{ Html.link(__('Dogman VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('À la dérive VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Woman at War VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('American Nightmare 4 : Les Origines VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Indestructibles 2 VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Un Couteau Dans le Coeur VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Ma fille VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Affamés VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                        </div>
+                        <div class="row">
+                            {{ Html.link(__('Voir tous les films en DVD/BLU-RAY'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-
+        <section class="stars">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>se divertir à la maison</h2>
+                    <h3>Top stars du jour sur Allociné</h3>
+                </div>
+            </div>
+            <div class="cine-serie">
+                <hr class="hr-cinema">
+                <div class="row justify-content-center nav black">
+                    <a href="" class="item ">
+                        <p><span>#</span>{{ __('Interviews') }}</p>
+                    </a>
+                    <a href="" class="item">
+                        <p><span>#</span>{{ __('Anniversaires') }}</p>
+                    </a>
+                    <a href="" class="item">
+                        <p><span>#</span>{{ __('Toutes les stars') }}</p>
+                    </a>
+                    <div class="item item-add">
+                        <p>{{ Html.image('add.png', {'class':'icone'})|raw }}</p>
+                    </div>
+                </div>
+                <hr class="hr-cinema-bottom">
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="">
+                        {{ Html.image('rami.jpg', {'class':'re-size-img'})|raw }}
+                        <p class="bold">Rami Malek</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="">
+                        {{ Html.image('claire.jpg', {'class':'re-size-img'})|raw }}
+                        <p class="bold">Rami Malek</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="">
+                        {{ Html.image('virginie.jpg', {'class':'re-size-img'})|raw }}
+                        <p class="bold">Rami Malek</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="">
+                        {{ Html.image('niels.jpg', {'class':'re-size-img'})|raw }}
+                        <p class="bold">Rami Malek</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="">
+                        {{ Html.image('camille.jpg', {'class':'re-size-img'})|raw }}
+                        <p class="bold">Rami Malek</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="">
+                        {{ Html.image('fabrice.jpg', {'class':'re-size-img'})|raw }}
+                        <p class="bold">Rami Malek</p>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                {{ Html.link(__('Top stars complet'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+            </div>
+            <hr>
+        </section>
+        <section class="exclu">
+            <div class="row">
+                <p>
+                {{ Html.link(__('Musique de films'), {'controller':'Movie', 'action': 'list'})|raw }}|
+                {{ Html.link(__('Musique de séries TV'), {'controller':'Movie', 'action': 'list'})|raw }}|
+                {{ Html.link(__(' Dernières séries TV en VOD'), {'controller':'Movie', 'action': 'list'})|raw }}|
+                {{ Html.link(__('News jeux vidéo'), {'controller':'Movie', 'action': 'list'})|raw }}
+            </p>
+            </div>
+            <div class="row">
+                <p>
+                    {{ Html.link(__('Filmstarts'), {'controller':'Movie', 'action': 'list'})|raw }}|
+                    {{ Html.link(__(' Beyazperde'), {'controller':'Movie', 'action': 'list'})|raw }}|
+                    {{ Html.link(__('SensaCine España'), {'controller':'Movie', 'action': 'list'})|raw }}|
+                    {{ Html.link(__('SensaCine México'), {'controller':'Movie', 'action': 'list'})|raw }}|
+                    {{ Html.link(__('Adorocinema'), {'controller':'Movie', 'action': 'list'})|raw }}|
+                    {{ Html.link(__('Le comparateur de vol easyvoyage'), {'controller':'Movie', 'action': 'list'})|raw }}|
+                    {{ Html.link(__('La Box Geek'), {'controller':'Movie', 'action': 'list'})|raw }}
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>ça sort le mercredi 12 octobre au ciné !</h2>
+                    <h4>Spider-Man : New Generation</h4>
+                </div>
+            </div>
+            <video id="my-video" class="video-js" controls preload="auto" width="1100" height="375" poster="/img/deadpool.jpg" data-setup="{}">
+               <source src="/img/deadpool.mp4" type='video/mp4'>
+               <p class="vjs-no-js">
+                 To view this video please enable JavaScript, and consider upgrading to a web browser that
+                 <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+               </p>
+                <script src="https://vjs.zencdn.net/7.2.4/video.js"></script>
+           </video>
+        </section>
 
 
 

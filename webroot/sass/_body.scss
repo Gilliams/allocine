@@ -335,8 +335,19 @@
     .col-md-3{padding: 0px 0px 0px 0px;}
     .col-md-9{padding: 0px;}
     .col-md-2{padding: 0px 20px 0px 0px;}
+    .col-md-12{margin-bottom: 20px;}
     .item-divertissement{
         margin-bottom: 20px;
+        a{
+            color: $color-secondary;
+        }
+        .link{
+            font-size: $font-size--small ;
+            line-height:$line-height--spe;
+            a{
+                color: #b3b3b3;
+            }
+        }
     }
     i{
         &.color{
@@ -361,5 +372,27 @@
     }
     .large{
         height: $line-height--x-large;
+    }
+}
+
+.stars{
+    @include padding-r-l(20px,20px);
+    .col-md-2{padding: 0px 20px 0px 0px;}
+    .col-md-12{margin-bottom: 20px;}
+}
+.exclu{
+    .row{
+        p{
+            margin: auto;
+        }
+    }
+    .col-md-12{
+        margin-top: 20px;
+        h4{
+            text-align: center;
+        }
+    }
+    .my-video-dimensions{
+        width: 100%;
     }
 }
