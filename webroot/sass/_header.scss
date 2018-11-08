@@ -1,0 +1,135 @@
+*{
+    font-family: $font-family--primary;
+}
+.container{
+    @include margin-r-l(208px,208px);
+    background-color: $white;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+header{
+    background-color: $color-primary;
+    height: $height-header;
+    padding: 10px 0px 0px 0px;
+    box-shadow: 0px 1px rgba(0, 0, 0, 0.24);
+    a{
+        color: $color-secondary;
+        &:hover{
+            color: $color-secondary;
+        }
+    }
+    .line-top{
+        height: 46px;
+        margin-bottom: 17px;
+    }
+    .image-logo{
+        @include re-sizing-img(90%);
+    }
+    .line-bottom{
+        height: 33px;
+        @include uppercase();
+    }
+    .exemple_film{
+        font-size: $font-size--x-small ;
+        height: 13px;
+    }
+    .form-search{
+        width: 100%;
+        display: inherit;
+        button{
+            height: 33px;
+            background-color: $color-secondary;
+            color: $white;
+        }
+    }
+    input{
+        width: 310px;
+        height: 33px;
+        font-size: $font-size--small;
+        .text{
+            height: 27px;
+        }
+    }
+
+    .pages{
+        ul{
+            padding-left: 0px;
+            margin: 0px;
+            text-align: left;
+            li{
+                padding: 7px 10px 7px 10px;
+                height: 35px;
+                &:hover{
+                    background-color:  rgba($white, .5);
+                    a{
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    .bold{
+        font-size: $font-size--large ;
+        font-weight: $font-weight--bold;
+        display: inline-block;
+    }
+    ul{
+        li{
+           display: inline;
+           text-decoration:none;
+       }
+    }
+    .my-allocine{
+        font-size: $font-size--small ;
+        font-weight: $font-weight--bold;
+        color: $color-secondary;
+        &:hover .sous-menu{
+          display: block;
+        }
+    }
+    .icone{
+        @include re-sizing-icone(16px);
+    }
+    .sous-menu{
+     display: none;
+     position: absolute;
+     right: -300px;
+     width: 200px;
+     margin-right: 300px;
+     margin-top: 5px;
+     background: $white;
+     text-align: left;
+     padding: 10px;
+     border-right: 1px solid $grey;
+      ul{
+          padding: 0px;
+          li{
+              display: block;
+          }
+      }
+      .log{
+          text-align: center;
+          border-bottom: 1px solid $grey;
+          margin-bottom: 10px;
+          .nv-compte{
+              font-size: $font-size--small ;
+              line-height: 35px;
+              text-transform: none;
+              text-decoration: underline;
+              color: $color-blue;
+          }
+          .btn-default{
+              padding: 5px;
+              background: $color-blue;
+              color: $white;
+              font-size: $font-size--medium;
+          }
+      }
+     .sous-menu-link{
+        li{
+            height: 36px;
+        }
+     }
+    }
+}

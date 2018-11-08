@@ -1,0 +1,38 @@
+
+<button type="button" name="button" >
+    {{ Html.link('Nouveau Film', {'controller':'Movie', 'action': 'new'})|raw }}
+</button>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Contenu</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for movie in movies %}
+
+        <tr>
+            <td>
+                {{ movie.id }}
+            </td>
+            <td>
+                {{ movie.name|capitalize }}
+            </td>
+            <td>
+                {{ movie.contain|capitalize }}
+            </td>
+            <td>
+                {{ movie.created|date("d/m/Y à H:i") }}
+            </td>
+            <td>
+                {{ Html.link('Edit','/movie/' ~ movie.id)|raw }}
+            </td>
+            <td>
+                {{ Html.link('Delete', {'controller':'Movie', 'action': 'delete' ~ '/' ~ movie.id})|raw }}
+            </td>
+        </tr>
+
+    {% endfor %}
+</table>

@@ -1,0 +1,55 @@
+// ==========================================================================
+// Utilities
+// ==========================================================================
+
+// Import if Google Fonts URL is defined
+@if variable-exists(font-url--google){
+    @import url($font-url--google);
+}
+
+// Calculate em values
+
+@function em($target, $context: $base__font-size){
+    @return ($target/$context) * 1em;
+}
+
+// Mixins
+@mixin bg-colors($map){
+    @each $theme, $color in $map{
+        &--#{$theme}{
+            background-color: $color;
+        }
+    }
+}
+
+@mixin uppercase(){
+    text-transform: uppercase;
+}
+
+@mixin text-too-long(){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+@mixin margin-r-l($r:null,$l:null){
+    margin-right: $r;
+    margin-left: $l;
+
+}
+@mixin padding-r-l($r:null,$l:null){
+    padding-right: $r;
+    padding-left: $l;
+
+}
+
+@mixin re-sizing-img($size-w,$size-h:auto){
+    width: $size-w;
+	height: $size-h;
+}
+
+@mixin re-sizing-icone($size){
+    width: $size;
+    height: $size;
+}

@@ -1,0 +1,80 @@
+// ==========================================================================
+// Global Config
+// ==========================================================================
+
+// Paste Snippets
+
+// Font Stacks
+$font-url-google             : 'https://fonts.googleapis.com/css?family=Montserrat';
+$font-family--primary        : 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family--secondary      : 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Font Weights
+$font-weight--thin           : 100;
+$font-weight--light          : 300;
+$font-weight--medium         : 400;
+$font-weight--bold           : 700;
+$font-weight--ultra-bold     : 900;
+
+
+// Text
+
+$font-size--x-small    : 10px;
+$font-size--small      : 13px;
+$font-size--medium     : 14px;
+$font-size--large      : 18px;
+$font-size--spe-large  : 20px;
+$font-size--x-large    : 24px;
+$font-size--xx-large   : 40px;
+
+
+// Descriptive Base Colors
+
+$white            : #fff;
+$black            : #1E1E1E;
+$grey             : #f2f2f2;
+
+$fountain-blue    : #1CA2EB;
+$emerald          : #5ece7f;
+$sunglo           : #e67478;
+$coral            : #ff784f;
+$purple-majesty   : #9279c3;
+$scooter          : #39add1;
+
+$allocine-primary   : #FECC00;
+$allocine-secondary : #1E1E1E;
+$allocine-footer    : #222222;
+
+// Color Usage
+
+$color-primary        : $allocine-primary ;
+$color-secondary      : $allocine-secondary ;
+$color-green          : $emerald ;
+$color-blue           : $fountain-blue ;
+$color-blue--darker   : darken($fountain-blue, 10%);
+$color-shadow         : rgba($black, .2) ;
+
+// UI Colors
+
+$ui-colors: (
+    default    : $fountain-blue,
+    succes     : $emerald,
+    error      : $sunglo,
+    warning    : $coral,
+    info       : $purple-majesty
+);
+
+
+// Height
+$line-height--x-small      : 12px;
+$line-height--small        : 15px;
+$line-height--spe          : 20px;
+$line-height--large        : 30px;
+$line-height--x-large      : 37px;
+
+
+
+$height-header           : 97px;
+$height-logo             : 46px;
+$height-search           : 49px;
+$height-mon-allocine     : 35px;

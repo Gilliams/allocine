@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{ Html.charset()|raw }}
+
+        <title>
+            {{ __('Allocine') }}
+            {{ _view.fetch('title')|raw }}
+        </title>
+
+        {{ Html.meta('icon')|raw }}
+
+        {{ Html.css('style.css')|raw }}
+        {{ Html.css('application.css')|raw }}
+        {{ Html.script('app')|raw }}
+
+        {{ _view.fetch('meta')|raw }}
+        {{ _view.fetch('css')|raw }}
+        {{ _view.fetch('script')|raw }}
+
+
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link href="https://vjs.zencdn.net/7.2.4/video-js.css" rel="stylesheet">
+
+        <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+        <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    </head>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="col-md-12 bandeau ">
+                <div class="row line-top">
+                    <div class="col-md-2">
+                        {{ Html.image('logo-allocine.png', {'class':'image-logo'})|raw }}
+                    </div>
+                    <div class="col-md-6 offset-md-2">
+                        <div class="row">
+                            {{ Form.create('Post', {'class':'form-search'})|raw }}
+                            {{ Form.control('',{'placeholder': __('Rechercher un film, une série, une star...')},{'class':'form-input'})|raw }}
+                            {{ Form.button('Rechercher')|raw }}
+                            {{ Form.end()|raw }}
+                        </div>
+                        <div class="row">
+                            <p class="header-search-extralinks exemple_film">Ex. :
+                                {{ Html.link('Bohemian Rhapsody', {'controller':'Movie', 'action': 'list'})|raw }},
+                                {{ Html.link('Mowgli', {'controller':'Movie', 'action': 'list'})|raw }},
+                                {{ Html.link('Game of Thrones', {'controller':'Movie', 'action': 'list'})|raw }},
+                                {{ Html.link('The Walking Dead', {'controller':'Movie', 'action': 'list'})|raw }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row line-bottom">
+                    <div class="col-md-9 pages">
+                        <ul >
+                            <div class="bold">
+                                <li>{{ Html.link(Html.image('home-button.png', {'class':'icone'}), {'controller':'Movie', 'action': 'list'},{'escape': false})|raw }}</li>
+                                <li>{{ Html.link('Cinéma', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                                <li>{{ Html.link('Séries', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                                <li>{{ Html.link('émissions', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                                <li>{{ Html.link('news', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                            </div>
+                            <li>{{ Html.image('music-player.png', {'class':'icone'})|raw }}{{ Html.link('B.O', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                            <li>{{ Html.link('TV', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                            <li>{{ Html.link('DVD', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                            <li>{{ Html.link('VOD', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                            <li>{{ Html.image('netflix.png', {'class':'icone'})|raw }}{{ Html.link('NETFLIX', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 offset-md-1 my-allocine">
+                        {{ Html.image('add-user.png', {'class':'icone'})|raw }}
+                        Mon allociné
+                        {{ Html.image('arrox-down.png', {'class':'icone'})|raw }}
+                        <div class="sous-menu">
+                            <ul>
+                                <div class="log">
+                                    <li>{{ Html.link('Identifier vous', {'controller':'Movie', 'action': 'list'}, {'class':'btn btn-default'})|raw }}</li>
+                                    <li>{{ Html.link('Créer votre compte', {'controller':'Movie', 'action': 'list'}, {'class':'nv-compte'})|raw }}</li>
+                                </div>
+                                <div class="sous-menu-link">
+                                    <li>{{ Html.link('Mes amis', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                                    <li>{{ Html.link('Mes cinémas', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                                    <li>{{ Html.link('Speednoter', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                                    <li>{{ Html.link('Ma collection', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                                    <li>{{ Html.link('Mon compte', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                                    <li>{{ Html.link('Jeux', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                                    <li>{{ Html.link('Forum', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{ _view.fetch('header')|raw }}
+        </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- {{ Flash.render()|raw }} -->
+        <section>
+            <div class="annonce">
+                <h1>{{__("Découvrez notre recherche de séances cinéma, les news et dossiers cinéma et séries TV, les émissions AlloCiné, les dernières bandes-annonces et plus encore...")}}</h1>
+            </div>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        {{ Html.image('1.jpg')|raw }}
+                    </div>
+                    <div class="carousel-item">
+                        {{ Html.image('2.jpg')|raw }}
+                    </div>
+                    <div class="carousel-item">
+                        {{ Html.image('3.jpg')|raw }}
+                    </div>
+                    <div class="carousel-item">
+                        {{ Html.image('4.jpg')|raw }}
+                    </div>
+                    <div class="carousel-item">
+                        {{ Html.image('5.jpg')|raw }}
+                    </div>
+                    <div class="carousel-item">
+                        {{ Html.image('6.jpg')|raw }}
+                    </div>
+                    <div class="carousel-item">
+                        {{ Html.image('7.jpg')|raw }}
+                    </div>
+                    <div class="carousel-item">
+                        {{ Html.image('8.jpg')|raw }}
+                    </div>
+                    <div class="carousel-item">
+                        {{ Html.image('9.jpg')|raw }}
+                    </div>
+                    <div class="carousel-item">
+                        {{ Html.image('10.jpg')|raw }}
+                    </div>
+                    <div class="carousel-item">
+                        {{ Html.image('11.jpg')|raw }}
+                    </div>
+                    <div class="carousel-item">
+                        {{ Html.image('12.jpg')|raw }}
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+                </ol>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+        <section class="cine-serie">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{ Html.link(__('cinéma'), {'controller':'Movie', 'action': 'list'})|raw }}</h2>
+                </div>
+            </div>
+            <hr class="hr-cinema">
+            <div class="row justify-content-center nav black">
+                <a href="" class="item ">
+                    <p><span>#</span>{{ __('Avant-premières') }}</p>
+                </a>
+                <a href="" class="item">
+                    <p><span>#</span>{{ __('Agenda des sorties') }}</p>
+                </a>
+                <a href="" class="item">
+                    <p><span>#</span>{{ __('Films pour enfants à l\'affiche') }}</p>
+                </a>
+                <a href="" class="item">
+                    <p><span>#</span>{{ __('Meilleurs films') }}</p>
+                </a>
+                <a href="" class="item">
+                    <p><span>#</span>{{ __('Box office') }}</p>
+                </a>
+                <div class="item item-add">
+                    <p>{{ Html.image('add.png', {'class':'icone'})|raw }}</p>
+                </div>
+            </div>
+            <hr class="hr-cinema-bottom">
+            <div class="search">
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ Form.create('Post', {'class':'form-search'})|raw }}
+                        {{ Form.control('',{'placeholder': __('Rechercher une salle : Nice, Bastille, 75001, UGC Lyon')},{'class':'form-input'})|raw }}
+                        {{ Form.button('Rechercher',{'type':'submit','class':'form-button'})|raw }}
+                        {{ Form.end()|raw }}
+                    </div>
+                    <div class="col-md-6">
+                        <p class="co">Connectez-vous pour rechercher dans vos cinémas favoris</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="sorties">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="block-cinema">
+                            <div class="row">
+                                <div class="col-md-10 resize-col">
+                                    <h3>{{__('Sorties de la semaine')}}</h3>
+                                </div>
+                                <div class="col-md-2">
+                                    {{ Html.image('left-arrow.png',{'class':'icone'})|raw }}
+                                    {{ Html.image('right-arrow.png',{'class':'icone'})|raw }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="card-deck">
+                                    <div class="card">
+                                        {{ Html.image('bohemian.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Bohemian Rhapsody'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Bryan Singer</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('liberte.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('En liberté !'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Pierre Salvadori</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('chacun.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Chacun pour tous'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Vianney Lebasque</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('silvio.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Silvio et les autres'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Paolo Sorrentino</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    {{ Html.link(__('Toutes les sorties de la semaine'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-cinema">
+                            <div class="row">
+                                <div class="col-md-10 resize-col">
+                                    <h3>{{__('Toujours à l\'affiche')}}</h3>
+                                </div>
+                                <div class="col-md-2">
+                                    {{ Html.image('left-arrow.png',{'class':'icone'})|raw }}
+                                    {{ Html.image('right-arrow.png',{'class':'icone'})|raw }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="card-deck">
+                                    <div class="card">
+                                        {{ Html.image('yeti.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Yéti & Compagnie'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Karey Kirkpatrick, Jason A. Reisig</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('bain.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Le grand bain'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Gilles Lellouche</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('dilili.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Dilili à Paris'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Michel Ocelot</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('venom.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Venom'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">Drame, Policier, Thriller, Biopic</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    {{ Html.link(__('Tous les films encore à l\'affiche'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 navigation">
+                    <div class="row">
+                        <div class="prochainement">
+                            <h3>{{__('Prochainement')}}</h3>
+                            <p class="card-text small">Classement des films les plus consultés hier</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li class="nav-list-first">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        {{ Html.link(Html.image('hp.jpg'), {'controller':'Movie', 'action': 'list'},{'escape': false})|raw }}
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p class="bold">{{ Html.link('Les Animaux fantastiques : Les crimes de Grindelwald', {'controller':'Movie', 'action': 'list'})|raw }}</p>
+                                    <p class="small">Film - Fantastique</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        {{ Html.link('Crazy Rich Asians', {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                    </div>
+                                    <div class="col-md-2">
+                                        {{ Html.link(Html.image('play-circle.png'), {'controller':'Movie', 'action': 'list','class':'icone-play'},{'escape': false})|raw }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        {{ Html.link('Un Amour impossible', {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                    </div>
+                                    <div class="col-md-2">
+                                        {{ Html.link(Html.image('play-circle.png'), {'controller':'Movie', 'action': 'list','class':'icone-play'},{'escape': false})|raw }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        {{ Html.link('Un homme pressé', {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                    </div>
+                                    <div class="col-md-2">
+                                        {{ Html.link(Html.image('play-circle.png'), {'controller':'Movie', 'action': 'list','class':'icone-play'},{'escape': false})|raw }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        {{ Html.link('Kursk', {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                    </div>
+                                    <div class="col-md-2">
+                                        {{ Html.link(Html.image('play-circle.png'), {'controller':'Movie', 'action': 'list','class':'icone-play'},{'escape': false})|raw }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        {{ Html.link('Sale temps à l\'hôtel El Royale', {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                    </div>
+                                    <div class="col-md-2">
+                                        {{ Html.link(Html.image('play-circle.png'), {'controller':'Movie', 'action': 'list','class':'icone-play'},{'escape': false})|raw }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        {{ Html.link('Sauver ou périr', {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                    </div>
+                                    <div class="col-md-2">
+                                        {{ Html.link(Html.image('play-circle.png'), {'controller':'Movie', 'action': 'list','class':'icone-play'},{'escape': false})|raw }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        {{ Html.link('Casse-noisette et les quatre royaumes', {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                    </div>
+                                    <div class="col-md-2">
+                                        {{ Html.link(Html.image('play-circle.png'), {'controller':'Movie', 'action': 'list','class':'icone-play'},{'escape': false})|raw }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        {{ Html.link("Qu'est-ce qu'on a encore fait au Bon Dieu ?", {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                    </div>
+                                    <div class="col-md-2">
+                                        {{ Html.link(Html.image('play-circle.png'), {'controller':'Movie', 'action': 'list','class':'icone-play'},{'escape': false})|raw }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        {{ Html.link('Wildlife - Une saison ardente', {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                    </div>
+                                    <div class="col-md-2">
+                                        {{ Html.link(Html.image('play-circle.png'), {'controller':'Movie', 'action': 'list','class':'icone-play'},{'escape': false})|raw }}
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        {{ Html.link(__('Tous les films à venir'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="teaser">
+            <h3>{{__('Bandes-annonces à ne pas manquer')}}</h3>
+            <video id="my-video" class="video-js" controls preload="auto" width="984" height="553" poster="/img/joker.jpg" data-setup="{}">
+               <source src="/img/joker.mp4" type='video/mp4'>
+               <p class="vjs-no-js">
+                 To view this video please enable JavaScript, and consider upgrading to a web browser that
+                 <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+               </p>
+           </video>
+           <script src="https://vjs.zencdn.net/7.2.4/video.js"></script>
+           <div class="col-md-8">
+               <div class="row">
+                   <div class="card-deck">
+                       <div class="card">
+                           {{ Html.image('hp-gr.jpg')|raw }}
+                       </div>
+                       <div class="card">
+                           {{ Html.image('lazzaro.jpg')|raw }}
+                       </div>
+                       <div class="card">
+                           {{ Html.image('high.jpg')|raw }}
+                       </div>
+                       <div class="card">
+                           {{ Html.image('sauver.jpg')|raw }}
+                       </div>
+                   </div>
+                   <div class="row">
+                       {{ Html.link(__('Toutes les bandes-annonces à ne pas manquer'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                   </div>
+               </div>
+           </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="news">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="block-cinema">
+                        <div class="row">
+                            <div class="col-md-10 resize-col">
+                                <h3>{{__('Dernières new cinéma')}}</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card-deck">
+                                <a href="">
+                                    <div class="card">
+                                        {{ Html.image('bg.jpg',{'class':'redim-img'})|raw }}
+                                        <div class="card-body">
+                                            <p class="card-text-small color">News - vu sur le web</p>
+                                            <p class="card-text-small">mardi 6 novembre 2018</p>
+                                            <p class="card-text">Burger Quiz Saison 3 : Marina Foïs, Alexandre Astier, Gérard Darmon succèdent à Alain Chabat</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card">
+                                        {{ Html.image('iron.jpg',{'class':'redim-img'})|raw }}
+                                        <div class="card-body">
+                                            <p class="card-text-small color">News - tournage</p>
+                                            <p class="card-text-small">mardi 6 novembre 2018</p>
+                                            <p class="card-text">Disneyland Paris : on en sait plus sur les nouvelles attractions Marvel, Star Wars et La Reine des neiges</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card">
+                                        {{ Html.image('boys.jpg',{'class':'redim-img'})|raw }}
+                                        <div class="card-body">
+                                            <p class="card-text-small color">News - culture ciné</p>
+                                            <p class="card-text-small">mardi 6 novembre 2018</p>
+                                            <p class="card-text">Ces titres de films qui vous mettent automatiquement une chanson dans la tête !</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card-deck">
+                                <a href="">
+                                    <div class="card">
+                                        {{ Html.image('chant.jpg',{'class':'redim-img'})|raw }}
+                                        <div class="card-body">
+                                            <p class="card-text-small color">News - interviews</p>
+                                            <p class="card-text-small">mardi 6 novembre 2018</p>
+                                            <p class="card-text">46 ans après, le documentaire "Amazing Grace" avec Aretha Franklin devrait enfin sortir en salle</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card">
+                                        {{ Html.image('jud.jpg',{'class':'redim-img'})|raw }}
+                                        <div class="card-body">
+                                            <p class="card-text-small color">News - vu sur le web</p>
+                                            <p class="card-text-small">mercredi 7 novembre 2018</p>
+                                            <p class="card-text">Les Animaux fantastiques 2 : les acteurs vous présentent Les crimes de Grindelwald</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card">
+                                        {{ Html.image('famille.jpg',{'class':'redim-img'})|raw }}
+                                        <div class="card-body">
+                                            <p class="card-text-small color">News - vu sur le web</p>
+                                            <p class="card-text-small">mardi 6 novembre 2018</p>
+                                            <p class="card-text">Bande-annonce Les Invisibles : Audrey Lamy dans une comédie sociale par le réalisateur de Discount</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card-deck">
+                                <a href="">
+                                    <div class="card">
+                                        {{ Html.image('lol.jpg',{'class':'redim-img'})|raw }}
+                                        <div class="card-body">
+                                            <p class="card-text-small color">News - vu sur le web</p>
+                                            <p class="card-text-small">mardi 6 novembre 2018</p>
+                                            <p class="card-text">Bande-annonce Premières vacances : Camille Chamoux et Jonathan Cohen, de Tinder à la Bulgarie...</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card">
+                                        {{ Html.image('cesar.jpg',{'class':'redim-img'})|raw }}
+                                        <div class="card-body">
+                                            <p class="card-text-small color">News - film à la tv</p>
+                                            <p class="card-text-small">lundi 5 novembre 2018</p>
+                                            <p class="card-text">La Planète des singes : l’affrontement sur W9 : comment fait-on pour incarner un primate ?</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card">
+                                        {{ Html.image('barbe.jpg',{'class':'redim-img'})|raw }}
+                                        <div class="card-body">
+                                            <p class="card-text-small color">News - tournages</p>
+                                            <p class="card-text-small">lundi 5 novembre 2018</p>
+                                            <p class="card-text">Bohemian Rhapsody : avez-vous reconnu Mike Myers ?</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="row">
+                                {{ Html.link(__('Toutes les news cinéma - Tous les dossiers cinéma'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <section class="cine-serie">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{ Html.link(__('séries'), {'controller':'Movie', 'action': 'list'})|raw }}</h2>
+                </div>
+            </div>
+            <hr class="hr-cinema">
+            <div class="row justify-content-center nav black">
+                <a href="" class="item ">
+                    <p><span>#</span>{{ __('Meilleures séries') }}</p>
+                </a>
+                <a href="" class="item">
+                    <p><span>#</span>{{ __('Episode inédit ce soir à la TV') }}</p>
+                </a>
+                <a href="" class="item">
+                    <p><span>#</span>{{ __('Séries TV inédite à voir') }}</p>
+                </a>
+                <a href="" class="item">
+                    <p><span>#</span>{{ __('Dernières vidéos de séries') }}</p>
+                </a>
+                <div class="item item-add">
+                    <p>{{ Html.image('add.png', {'class':'icone'})|raw }}</p>
+                </div>
+            </div>
+            <hr class="hr-cinema-bottom">
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="sorties">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="block-cinema">
+                            <div class="row">
+                                <div class="col-md-10 resize-col">
+                                    <h3>{{__('top séries de la semaine')}}</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="card-deck">
+                                    <div class="card">
+                                        {{ Html.image('elite.png')|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Elite'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text"><small class="text-muted">Drame</small></p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('bureau.jpg')|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Le bureau des Légendes'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text"><small class="text-muted">Drame, Espionnage</small></p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('haunting.png')|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('The Haunting of Hill House'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text"><small class="text-muted">Drame, Epouvante-Horreur</small></p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('casa.png')|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('La Casa De Papel'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text"><small class="text-muted">Drame, Thriller</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    {{ Html.link(__('Toutes les séries les plus consultées'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-cinema">
+                            <div class="row">
+                                <div class="col-md-10 resize-col">
+                                    <h3>{{__('Les séries les plus attendues')}}</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="card-deck">
+                                    <div class="card">
+                                        {{ Html.image('verite.jpg')|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('La Vérité sur l\'affaire Harry Québert'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text"><small class="text-muted">Drame, Policier, Thriller</small></p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('vitam.jpg')|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Ad Vitam'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text"><small class="text-muted">Drame, Science fiction</small></p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('night.png')|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Nightflyers'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text"><small class="text-muted">Epouvante-Horreur, Science-Fiction</small></p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('narcos.png')|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Narcos: Mexico'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text"><small class="text-muted">Drame, Policier, Thriller, Biopic</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    {{ Html.link(__('Toutes les séries les plus attendues'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 navigation">
+                    <div class="row">
+                        <div class="prochainement">
+                            <h3>{{__('L\'actu séries')}}</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li class="nav-list-first">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {{ Html.link(Html.image('dead.jpg',{'class':'redim-img'}), {'controller':'Movie', 'action': 'list'},{'escape': false})|raw }}
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="small-color">News - séries à la tv</p>
+                                        <p class="small">mardi 6 novembre 2018</p>
+                                        <p class="bold">Demain Nous Appartient : l'accident de bus permet au feuilleton de battre son record d'audience</p>
+                                    </div>
+                                </div>
+                                <hr>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="card-body">
+                                        <p class="small-color">News - tournages</p>
+                                        <p class="small">mardi 6 novembre 2018</p>
+                                        <p class="bold">Deadwood : le téléfilm entre enfin en tournage avec le casting de retour au complet !</p>
+                                    </div>
+                                </div>
+                                <hr>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="card-body">
+                                        <p class="small-color">News - séries à la tv</p>
+                                        <p class="small">mardi 6 novembre 2018</p>
+                                        <p class="bold">Black Mirror saison 5 : le créateur dément une suite à l'épisode San Junipero... pour le moment !</p>
+                                    </div>
+                                </div>
+                                <hr>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="card-body">
+                                        <p class="small-color">News - séries à la tv</p>
+                                        <p class="small">mardi 6 novembre 2018</p>
+                                        <p class="bold">House of Cards tire sa révérence avec une Claire Underwood puissante et déterminée</p>
+                                    </div>
+                                </div>
+                                <hr>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="card-body">
+                                        <p class="small-color">News - au programme</p>
+                                        <p class="small">mardi 6 novembre 2018</p>
+                                        <p class="bold">Les Rivières pourpres : la première bande-annonce exclusive de la série de France 2</p>
+                                    </div>
+                                </div>
+                                <hr>
+                            </li>
+                            <li class="nav-list-item">
+                                <div class="row">
+                                    <div class="card-body">
+                                        <p class="small-color">News - séries à la tv</p>
+                                        <p class="small">mardi 6 novembre 2018</p>
+                                        <p class="bold">The Rookie : une saison complète pour la nouvelle série avec Nathan Fillion (Castle)</p>
+                                    </div>
+                                </div>
+                                <hr>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        {{ Html.link(__('Toutes les news séries'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+        <section class="emission">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>émissions allociné</h2>
+                    <p>Les dérnières émissions proposées par la Rédac</p>
+                    <hr class="hr-cinema">
+                </div>
+            </div>
+            <section class="cine-serie">
+                <div class="row justify-content-center nav white">
+                    <a href="" class="item ">
+                        <p><span>#</span>{{ __('Fun Facts') }}</p>
+                    </a>
+                    <a href="" class="item">
+                        <p><span>#</span>{{ __('Faux Raccord') }}</p>
+                    </a>
+                    <a href="" class="item">
+                        <p><span>#</span>{{ __('Fanzone') }}</p>
+                    </a>
+                    <a href="" class="item">
+                        <p><span>#</span>{{ __('Aviez-vous remarqué ?') }}</p>
+                    </a>
+                    <a href="" class="item">
+                        <p><span>#</span>{{ __('Give Me Five') }}</p>
+                    </a>
+                    <div class="item item-add">
+                        <p>{{ Html.image('add.png', {'class':'icone'})|raw }}</p>
+                    </div>
+                </div>
+                <hr class="hr-cinema-bottom">
+            </section>
+            <div class="row">
+                <video id="my-video" class="video-js" controls preload="auto" width="1100" height="375" poster="/img/deadpool.jpg" data-setup="{}">
+                   <source src="/img/deadpool.mp4" type='video/mp4'>
+                   <p class="vjs-no-js">
+                     To view this video please enable JavaScript, and consider upgrading to a web browser that
+                     <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                   </p>
+               </video>
+               <script src="https://vjs.zencdn.net/7.2.4/video.js"></script>
+            </div>
+            <div class="row">
+                <div class="item-emission">
+                    {{ Html.link(Html.image('freddy.jpg',{'class':'redim-img'}), {'controller':'Movie', 'action': 'list'},{'escape': false})|raw }}
+                    <p>{{ Html.link(__('Faux Raccord N°243 - Les gaffes et erreurs de Freddy, les griffes de la nuit'), {'controller':'Movie', 'action': 'list'})|raw }}</p>
+                </div>
+                <div class="item-emission middle">
+                    {{ Html.link(Html.image('morty.jpg',{'class':'redim-img'}), {'controller':'Movie', 'action': 'list'},{'escape': false})|raw }}
+                    <p>{{ Html.link(__('Give Me Five - Rick et Morty'), {'controller':'Movie', 'action': 'list'})|raw }}</p>
+                </div>
+                <div class="item-emission">
+                    {{ Html.link(Html.image('ahmed.jpg',{'class':'redim-img'}), {'controller':'Movie', 'action': 'list'},{'escape': false})|raw }}
+                    <p>{{ Html.link(__('Ma scène préférée N°251 - Usual Suspects, par Ahmed Sylla'), {'controller':'Movie', 'action': 'list'})|raw }}</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="divertissement">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>se divertir à la maison</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="item-divertissement">
+                        <div class="row">
+                            <h3>{{ Html.link(__('ce soir à la télé'), {'controller':'Movie', 'action': 'list'})|raw }}</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                {{ Html.image('brave.jpg',{'class':'re-size-img'})|raw}}
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row small">
+                                    <p class="bold">Braveheart</p>
+                                </div>
+                                <div class="row small small-space">
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star normal"></i>
+                                </div>
+                                <div class="row large">
+                                    <div class="col-md-2">{{ Html.image('cherie.png',{'class':'re-size-logo'})|raw}}</div>
+                                    <div class="col-md-2"><p class="bold">20:55</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-divertissement">
+                        <div class="row">
+                            <div class="col-md-3">
+                                {{ Html.image('sherlock.jpg',{'class':'re-size-img'})|raw}}
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row small">
+                                    <p class="bold">Sherlock</p>
+                                </div>
+                                <div class="row small">
+                                    <p class="small">De Steven Moffat, Mark Gatiss</p>
+                                </div>
+                                <div class="row small small-space">
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star normal"></i>
+                                </div>
+                                <div class="row large">
+                                    <div class="col-md-2">{{ Html.image('france4.png',{'class':'re-size-logo'})|raw}}</div>
+                                    <div class="col-md-2"><p class="bold">23:30</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-divertissement">
+                        <div class="row">
+                            <div class="col-md-3">
+                                {{ Html.image('baiser.jpg',{'class':'re-size-img'})|raw}}
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row small">
+                                    <p class="bold">Baisers cachés</p>
+                                </div>
+                                <div class="row small small-space">
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star color"></i>
+                                    <i class="fas fa-star normal"></i>
+                                </div>
+                                <div class="row large">
+                                    <div class="col-md-2">{{ Html.image('france4.png',{'class':'re-size-logo'})|raw}}</div>
+                                    <div class="col-md-2"><p class="bold">21:05</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {{ Html.link(__('Voir le programme TV de ce soir'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-divertissement">
+                        <div class="row">
+                            <h3>{{ Html.link(__('film en vod'), {'controller':'Movie', 'action': 'list'})|raw }}</h3>
+                        </div>
+                        <div class="row">
+                            <h4>Nouveaux films en VOD</h4>
+                        </div>
+                        <div class="row">
+                            {{ Html.link(__('Dogman VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('À la dérive VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Woman at War VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('American Nightmare 4 : Les Origines VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Indestructibles 2 VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Un Couteau Dans le Coeur VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Ma fille VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                            {{ Html.link(__('Les Affamés VOD'), {'controller':'Movie', 'action': 'list'})|raw }},
+                        </div>
+                        <div class="row">
+                            {{ Html.link(__('Voir le programme TV de ce soir'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+        <section>
+
+
+            <!--<h1>{{ _view.fetch('title')|raw }}</h1> -->
+
+            {{ _view.fetch('content')|raw }}
+        </section>
+
+        <footer>
+            {{ _view.fetch('footer')|raw }}
+        </footer>
+    </div>
+</body>
+</html>

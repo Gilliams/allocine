@@ -1,0 +1,365 @@
+.cine-serie{
+    font-weight: $font-weight--bold ;
+    @include padding-r-l(20px,20px);
+    margin-bottom: 50px;
+    .black{
+        a{
+            color: $color-secondary !important ;
+            &:hover{
+                text-decoration: none;
+                color:$color-blue !important;
+            }
+        }
+    }
+    .white{
+        a{
+            color: $white !important ;
+            &:hover{
+                text-decoration: none;
+                color:$color-blue !important;
+            }
+        }
+    }
+    .my-video-dimensions{
+        width: 984px;
+        height: 553px;
+    }
+    .hr-cinema{
+        @include margin-r-l(20px,20px);
+        margin-bottom: 0px;
+        &-bottom{
+            margin:0px 20px 0px 20px;
+        }
+    }
+    .line{
+        border-bottom: 1px solid $color-shadow;
+    }
+    .nav{
+        p{
+            margin-bottom: 0;
+        }
+        .item{
+            padding: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            span{
+                color: $color-primary;
+            }
+
+            &-add{
+                border-left: 1px solid $color-shadow;
+                font-size: $font-size--large;
+                padding: 0px;
+                width: 50px;
+                margin-left: 29px;
+                &:hover{
+                    background-color: $color-shadow;
+                }
+                .icone{
+                    @include re-sizing-icone(24px);
+                }
+                p{
+                    text-align: center;
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+    .search{
+        background-color: $grey;
+        padding: 20px;
+        font-weight: $font-weight--medium;
+    }
+    .form-search{
+        div.input.text{
+            font-size: $font-size--small ;
+            input{
+                width: 350px;
+            }
+        }
+        button{
+            display: inline-block;
+            width: 110px;
+            height: 33px;
+            background-color: $color-secondary;
+            color: $white;
+        }
+
+    }
+}
+.link-end{
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: $font-weight--bold;
+    color: $color-blue--darker;
+    &:hover{
+        color: $color-blue;
+    }
+}
+.sorties{
+    background-color: $white;
+    @include padding-r-l(20px,20px);
+    margin-bottom: 50px;
+    .redim-img{
+        width: 325px;
+        height: 125px;
+    }
+    .row{
+        margin: 0;
+        .col-md-8{
+            @include padding-r-l(0px,0px);
+        }
+        .col-md-4{
+            @include padding-r-l(0px,0px);
+        }
+    }
+    .block-cinema{
+        margin-bottom: 30px;
+        .icone{
+            @include re-sizing-icone(19px);
+            display: inline-block;
+        }
+        .resize-col{
+            padding: 0px;
+        }
+        .card-deck{
+            @include margin-r-l(0px,0px);
+            .card{
+                border: none;
+                margin: 0px 20px 0px 0px;
+                width: 150px;
+                .card-body{
+                    padding: 0px;
+                    padding-top: 5px;
+                    @include text-too-long();
+                    .card-text{
+                        padding: -5px;
+                        @include text-too-long();
+                    }
+                }
+                a{
+                    color: $color-secondary;
+                    font-weight:  $font-weight--bold;
+
+                    &:hover{
+                        text-decoration: none;
+                        color:$color-blue;
+                    }
+                }
+            }
+        }
+    }
+    .navigation{
+        .prochainement{
+            h2{
+                margin-bottom: 0;
+            }
+            margin-bottom: 10px;
+        }
+        ul{
+            padding-left: 0px;
+            li{
+                list-style: none;
+                .col-md-4{
+                    @include padding-r-l(0px,0px);
+                }
+                .col-md-8{
+                    @include padding-r-l(20px,40px);
+                    .bold{
+                        margin-bottom: 0px;
+                    }
+                }
+                .card-body{
+                    padding: 10px 10px 10px 15px;
+                }
+                .small{
+                    margin-bottom: 5px;
+                    &-color{
+                        margin-bottom: 5px;
+                    }
+                }
+                .bold{
+                    margin-bottom: 0px;
+                }
+                a{
+                    color: $color-secondary;
+                    font-weight:  $font-weight--bold;
+                    &:hover{
+                        text-decoration: none;
+                        color: $color-blue;
+                    }
+                }
+                .col-md-2{
+                    a{
+                        img{
+                            @include re-sizing-icone(16px);
+                            &:hover{
+                                color: $color-primary;
+                            }
+                        }
+                    }
+
+                }
+                hr{
+                    margin: 0px;
+                    @include margin-r-l(10px,10px);
+                }
+            }
+        }
+    }
+
+}
+.teaser{
+    padding: 20px;
+    background-color: $white;
+    .my-video-dimensions{
+        width: 712px;
+        height: 375px;
+    }
+    .col-md-8{
+        @include padding-r-l(0px,0px);
+    }
+    .card-deck{
+        margin-left: 0px;
+        margin-right: 0px;
+        .card{
+            border: none;
+            margin: 20px 20px 0px 0px;
+            width: 315px;
+        }
+    }
+}
+.news{
+    margin-bottom: 50px;
+    .block-cinema{
+        .col-md-10{
+            @include padding-r-l(0px,0px);
+        }
+    }
+    .card-deck{
+        margin-left: 0px;
+        margin-right: 0px;
+        a{
+            color: $color-secondary;
+        }
+        .card{
+            border: none;
+            margin: 20px 20px 0px 0px;
+            width: 315px;
+            .redim-img{
+                height: 125px;
+            }
+            .card-body{
+                padding: 0px;
+                padding-top: 5px;
+                .card-text{
+                    padding: -5px;
+                    font-size: 15px;
+                    font-weight: $font-weight--bold;
+                }
+                .card-text-small{
+                    font-size: $font-size--x-small ;
+                    line-height: 12px;
+                    margin-bottom: 5px;
+                    color: #b3b3b3;
+                }
+                .color{
+                    color:$color-primary;
+                    text-transform: uppercase;
+                    font-weight: $font-weight--bold;
+                }
+            }
+            a{
+                color: $color-secondary;
+                font-weight:  $font-weight--bold;
+
+                &:hover{
+                    text-decoration: none;
+                    color:$color-blue;
+                }
+            }
+
+        }
+    }
+}
+.emission{
+    background-color: #333;
+    color: $white;
+    margin-bottom: 50px;
+    @include padding-r-l(20px,20px);
+    .col-md-12{
+        @include padding-r-l(0px,0px);
+        p{
+            text-align: center;
+            font-size: $font-size--spe-large;
+        }
+    }
+    .cine-serie{
+        @include padding-r-l(0px,0px);
+        .item{
+            @include margin-r-l(30px,30px);
+        }
+    }
+    .hr-cinema{
+            border-top: 1px solid $white;
+            margin:0px;
+        &-bottom{
+            border-top: 1px solid $white;
+            @include margin-r-l(0px,0px);
+        }
+    }
+    .item-emission{
+        margin-top: 20px;
+        width: 320px;
+        p{
+            font-size: $font-size--medium ;
+        }
+        a{
+            color: $white !important;
+            font-weight: $font-weight--bold !important;
+            &:hover{
+                color: $color-primary !important;
+            }
+        }
+    }
+    .middle{
+        @include margin-r-l(70px,70px);
+    }
+    .my-video-dimensions{
+        width: 1100px;
+    }
+}
+.divertissement{
+    padding: 20px;
+    .col-md-4{padding: 0px;}
+    .col-md-3{padding: 0px 0px 0px 0px;}
+    .col-md-9{padding: 0px;}
+    .col-md-2{padding: 0px 20px 0px 0px;}
+    .item-divertissement{
+        margin-bottom: 20px;
+    }
+    i{
+        &.color{
+            color: $color-primary;
+        }
+        &.normal{
+            color: $color-shadow ;
+        }
+    }
+    .re-size-img{
+        @include re-sizing-img(70px,96px);
+    }
+    .re-size-logo{
+        @include re-sizing-img(35px,35px);
+    }
+    .small{
+        height: $line-height--spe;
+        &-space{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    }
+    .large{
+        height: $line-height--x-large;
+    }
+}

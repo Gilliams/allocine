@@ -1,0 +1,90 @@
+.row{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+h1{
+    font-weight  : $font-weight--light !important;
+    font-size    : $font-size--small !important;
+    line-height  : $line-height--large !important;
+    text-align: center;
+}
+h2{
+    font-size     : $font-size--xx-large !important;
+    font-weight   : $font-weight--bold !important;
+    color         : $color-secondary;
+    text-transform: uppercase;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 20px;
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 47%;
+        content: "";
+        height: 4px;
+        width: 80px;
+        background: $color-primary;
+    }
+}
+h3{
+    font-size      : $font-size--x-large !important;
+    font-weight    : $font-weight--bold !important;
+    text-transform : uppercase !important;
+    color          : $color-secondary !important;
+}
+h4{
+    font-size      : $font-size--medium !important;
+    font-weight    : $font-weight--bold !important;
+    color          : $color-secondary;
+    text-transform : uppercase;
+}
+p{
+    &.x-small{
+        font-size: $font-size--x-small ;
+        line-height:$line-height--x-small  ;
+        color: #b3b3b3;
+        &-color{
+            text-transform: uppercase;
+            font-weight: $font-weight--bold;
+            color: $color-primary;
+        }
+    }
+    &.small{
+        font-size: $font-size--small;
+        line-height: $line-height--small;
+        color: #b3b3b3;
+        &-color{
+            text-transform: uppercase;
+            font-weight: $font-weight--bold;
+            color: $color-primary;
+        }
+    }
+    &.co{
+        font-size: $font-size--medium;
+        color: $color-blue;
+        text-align: center;
+    }
+    &.describe{
+        text-transform: capitalize;
+        color: #b3b3b3;
+    }
+    &.bold{
+        color: $color-secondary;
+        font-weight: $font-weight--bold;
+    }
+}
+a{
+    text-decoration: none !important;
+    &:hover{
+        text-decoration: none;
+        color:$color-blue !important;
+    }
+}
+
+.img--medium{
+    @include re-sizing-img(150px,auto);
+}
+.img--large{
+    @include re-sizing-img(325px,125px);
+}
