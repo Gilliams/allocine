@@ -22,10 +22,10 @@
                 {{ Html.link(movie.name, {'controller':'Movie', 'action': 'movie' ~ '/' ~ movie.id})|raw }}
             </td>
             <td>
-                {{ movie.contain}}
+                {{ movie.contain|length > 50 ? movie.contain|slice(0, 50) ~ '...' : movie.contain  }}
             </td>
             <td>
-                {{ movie.created|date("d/m/Y à H:i") }}
+                {{ movie.created|date("d/m/Y") }}
             </td>
             <td>
                 {% for categorie in movie.categories %}

@@ -30,52 +30,73 @@ use Cake\ORM\TableRegistry;
 class CategorieController extends AppController
 {
 
+        /**
+         * List a Categorie
+         */
+        public function categorie($id){
+
+            // -> Find Categorie and turns it into an array
+            $categorie = TableRegistry::get('Categories')->find()
+            ->where([
+                'Categories.id' => $id
+            ])
+            ->contain([
+                'Movies',
+            ])
+            ->first();
+
+            // -> Set Categorie to view
+            $this->set(compact('categorie'));
+            // debug($categorie);
+            // die();
+
+        }
     /**
-     * Create a new Actor
-     * Save the new Actor
-     * @return View /src/Template/Actor/list.twig
+     * Create a new Categorie
+     * Save the new Categorie
+     * @return View /src/Template/Categorie/list.twig
      */
 
     public function new(){
         if($this->request->is('post') || $this->request->is('put')){
 
 
-            // -> Create new entity $actor
-            $actor = TableRegistry::get('Actors')->newEntity($this->request->getData());
+            // -> Create new entity $categorie
+            $categorie = TableRegistry::get('Categories')->newEntity($this->request->getData());
 
-            // -> Save Actor
-            $actor = TableRegistry::get('Actors')->save($actor);
+            // -> Save Categorie
+            $categorie = TableRegistry::get('Categories')->save($categorie);
 
-            return $this->redirect(['controller'=> 'Actor','action' => 'list']);
+            return $this->redirect(['controller'=> 'Categorie','action' => 'list']);
         }
     }
 
 
     /**
-     * List the Actors
+     * List the Categories
      */
     public function list(){
 
-        // -> Find Actor and turns it into an array
+        // -> Find Categorie and turns it into an array
         $categories = TableRegistry::get('Categories')->find()
         ->contain([
             'Movies'
         ]);
 
-        // -> Set Actor to view
+        // -> Set Categorie to view
         $this->set(compact('categories'));
     }
 
 
     /**
-     * Update a Actor
+     * Update a Categorie
      * @param Int $id
-     * @return View /src/Template/Actor/update.twig
+     * @return View /src/Template/Categorie/update.twig
      */
     public function update($id){
 
-        // -> Find a Actor
-        $actor = TableRegistry::get('Actors')->find()
+        // -> Find a Categorie
+        $categorie = TableRegistry::get('Categories')->find()
         ->where([
             'id' => $id
         ])
@@ -84,42 +105,42 @@ class CategorieController extends AppController
         // -> If request is Post or Put
         if($this->request->is('post') || $this->request->is('put')){
 
-            // -> Edit a Actor entity
-            $actor = TableRegistry::get('Actors')->patchEntity($actor,$this->request->getData());
+            // -> Edit a Categorie entity
+            $categorie = TableRegistry::get('Categories')->patchEntity($categorie,$this->request->getData());
 
-            // -> Save a Actor entity
-            $actor = TableRegistry::get('Actors')->save($actor);
+            // -> Save a Categorie entity
+            $categorie = TableRegistry::get('Categories')->save($categorie);
 
-            // -> Redirect to update Actor
-            return $this->redirect(['controller'=> 'Actor','action' => 'list']);
+            // -> Redirect to update Categorie
+            return $this->redirect(['controller'=> 'Categorie','action' => 'list']);
         }
 
-        // -> Set Actor to view
-        $this->set(compact('Actor'));
+        // -> Set Categorie to view
+        $this->set(compact('Categorie'));
 
     }
 
 
     /**
-     * Delete a Actor
+     * Delete a Categorie
      * @param Int $id
-     * Select a Actor by his ID and delete it
-     * @return View /src/Template/Actor/list.twig
+     * Select a Categorie by his ID and delete it
+     * @return View /src/Template/Categorie/list.twig
      */
     public function delete($id){
 
-        // -> Find a Actor where id is select
-        $actor = TableRegistry::get('Actors')->find()
+        // -> Find a Categorie where id is select
+        $categorie = TableRegistry::get('Categories')->find()
         ->where([
             'id' => $id
         ])
         ->first();
 
-        // -> If Actor exist he's delete
-        if($actor){
-            TableRegistry::get('Actors')->delete($actor);
+        // -> If Categorie exist he's delete
+        if($categorie){
+            TableRegistry::get('Categories')->delete($categorie);
         }
-        return $this->redirect(['controller'=> 'Actor','action' => 'list']);
+        return $this->redirect(['controller'=> 'Categorie','action' => 'list']);
 
     }
 

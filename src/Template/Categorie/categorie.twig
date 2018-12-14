@@ -1,0 +1,21 @@
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Categorie</th>
+        <th>Films</th>
+    </tr>
+
+        <tr>
+            <td>
+                {{ categorie.id }}
+            </td>
+            <td>
+                {{ categorie.name|capitalize }}
+            </td>
+            <td>
+                {% for movie in categorie.movies %}
+                    {{ Html.link(movie.name, {'controller':'Movie', 'action': 'movie' ~ '/' ~ movie.id})|raw }}<br>
+                {% endfor %}
+            </td>
+        </tr>
+</table>

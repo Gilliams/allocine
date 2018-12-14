@@ -31,9 +31,9 @@ class CommentController extends AppController
 {
 
     /**
-     * Create a new Actor
-     * Save the new Actor
-     * @return View /src/Template/Actor/list.twig
+     * Create a new Comment
+     * Save the new Comment
+     * @return View /src/Template/Comment/list.twig
      */
 
     public function new(){
@@ -52,7 +52,7 @@ class CommentController extends AppController
 
 
     /**
-     * List the Actors
+     * List the Comments
      */
     public function list(){
 

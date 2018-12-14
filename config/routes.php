@@ -78,15 +78,16 @@ Router::scope('/', function (RouteBuilder $routes) {
      // $routes->connect('/acteur/*', ['controller' => 'Actor', 'action' => 'update']);
      // $routes->connect('/acteurs/*', ['controller' => 'Actor', 'action' => 'list']);
 
-     $routes->connect('/acteurs/*', ['controller' => 'Actor', 'action' => 'list']);
-     $routes->connect('/acteur/:id', ['controller' => 'Actor', 'action' => 'actor'])->setPass(['id']);
+     $routes->connect('/acteurs', ['controller' => 'Actor', 'action' => 'list']);
+        $routes->connect('/acteur/:id', ['controller' => 'Actor', 'action' => 'actor'])->setPass(['id']);
      $routes->connect('/films', ['controller' => 'Movie', 'action' => 'list']);
-     $routes->connect('/film/:id', ['controller' => 'Movie', 'action' => 'movie'])->setPass(['id']);
-     $routes->connect('/film/*', ['controller' => 'Movie', 'action' => 'update']);
-     $routes->connect('/categories/*', ['controller' => 'Categorie', 'action' => 'list']);
-     $routes->connect('/commentaires/*', ['controller' => 'Comment', 'action' => 'list']);
-     $routes->connect('/commentaire/*', ['controller' => 'Comment', 'action' => 'update']);
-     $routes->connect('/producteurs/*', ['controller' => 'Producer', 'action' => 'list']);
+        $routes->connect('/film/:id', ['controller' => 'Movie', 'action' => 'movie'])->setPass(['id']);
+        $routes->connect('/film/*', ['controller' => 'Movie', 'action' => 'update']);
+     $routes->connect('/categories', ['controller' => 'Categorie', 'action' => 'list']);
+        $routes->connect('/categorie/:id', ['controller' => 'Categorie', 'action' => 'categorie'])->setPass(['id']);
+     $routes->connect('/commentaires', ['controller' => 'Comment', 'action' => 'list']);
+        $routes->connect('/commentaire/*', ['controller' => 'Comment', 'action' => 'update']);
+     $routes->connect('/producteurs', ['controller' => 'Producer', 'action' => 'list']);
 
 
     /**

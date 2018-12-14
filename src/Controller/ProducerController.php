@@ -49,51 +49,51 @@ class ProducerController extends AppController
     }
 
     /**
-     * Create a new Actor
-     * Save the new Actor
-     * @return View /src/Template/Actor/list.twig
+     * Create a new Producer
+     * Save the new Producer
+     * @return View /src/Template/Producer/list.twig
      */
 
     public function new(){
         if($this->request->is('post') || $this->request->is('put')){
 
 
-            // -> Create new entity $actor
-            $actor = TableRegistry::get('Actors')->newEntity($this->request->getData());
+            // -> Create new entity $producer
+            $producer = TableRegistry::get('Producers')->newEntity($this->request->getData());
 
-            // -> Save Actor
-            $actor = TableRegistry::get('Actors')->save($actor);
+            // -> Save Producer
+            $producer = TableRegistry::get('Producers')->save($producer);
 
-            return $this->redirect(['controller'=> 'Actor','action' => 'list']);
+            return $this->redirect(['controller'=> 'Producer','action' => 'list']);
         }
     }
 
 
     /**
-     * List the Actors
+     * List the Producers
      */
     public function list(){
 
-        // -> Find Actor and turns it into an array
+        // -> Find Producer and turns it into an array
         $producers = TableRegistry::get('Producers')->find()
         ->contain([
             'Movies'
         ]);
 
-        // -> Set Actor to view
+        // -> Set Producer to view
         $this->set(compact('producers'));
     }
 
 
     /**
-     * Update a Actor
+     * Update a Producer
      * @param Int $id
-     * @return View /src/Template/Actor/update.twig
+     * @return View /src/Template/Producer/update.twig
      */
     public function update($id){
 
-        // -> Find a Actor
-        $actor = TableRegistry::get('Actors')->find()
+        // -> Find a Producer
+        $producer = TableRegistry::get('Producers')->find()
         ->where([
             'id' => $id
         ])
@@ -102,42 +102,42 @@ class ProducerController extends AppController
         // -> If request is Post or Put
         if($this->request->is('post') || $this->request->is('put')){
 
-            // -> Edit a Actor entity
-            $actor = TableRegistry::get('Actors')->patchEntity($actor,$this->request->getData());
+            // -> Edit a Producer entity
+            $producer = TableRegistry::get('Producers')->patchEntity($producer,$this->request->getData());
 
-            // -> Save a Actor entity
-            $actor = TableRegistry::get('Actors')->save($actor);
+            // -> Save a Producer entity
+            $producer = TableRegistry::get('Producers')->save($producer);
 
-            // -> Redirect to update Actor
-            return $this->redirect(['controller'=> 'Actor','action' => 'list']);
+            // -> Redirect to update Producer
+            return $this->redirect(['controller'=> 'Producer','action' => 'list']);
         }
 
-        // -> Set Actor to view
-        $this->set(compact('Actor'));
+        // -> Set Producer to view
+        $this->set(compact('Producer'));
 
     }
 
 
     /**
-     * Delete a Actor
+     * Delete a Producer
      * @param Int $id
-     * Select a Actor by his ID and delete it
-     * @return View /src/Template/Actor/list.twig
+     * Select a Producer by his ID and delete it
+     * @return View /src/Template/Producer/list.twig
      */
     public function delete($id){
 
-        // -> Find a Actor where id is select
-        $actor = TableRegistry::get('Actors')->find()
+        // -> Find a Producer where id is select
+        $producer = TableRegistry::get('Producers')->find()
         ->where([
             'id' => $id
         ])
         ->first();
 
-        // -> If Actor exist he's delete
-        if($actor){
-            TableRegistry::get('Actors')->delete($actor);
+        // -> If Producer exist he's delete
+        if($producer){
+            TableRegistry::get('Producers')->delete($producer);
         }
-        return $this->redirect(['controller'=> 'Actor','action' => 'list']);
+        return $this->redirect(['controller'=> 'Producer','action' => 'list']);
 
     }
 
