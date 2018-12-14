@@ -1,0 +1,12 @@
+    <p>{{ comment.newspapper }}</p>
+    <p>{{ comment.author }}</p>
+    <p>{{ comment.note }}</p>
+    <p>{{ comment.contain }}</p>
+
+{{ Form.create('Post')|raw }}
+    {{ Form.control('newspapper',{'label': __('Entrer le nom de votre journal')})|raw }}
+    {{ Form.control('author',{'label': __('Entrer votre nom')})|raw }}
+    {{ Form.control('note',{'label': __('Notez le film')})|raw }}
+    {{ Form.control('contain',{'type': 'textarea','label': __('Entrer votre critique')})|raw }}
+    {{ Form.button('Ajouter')|raw }}
+{{ Form.end()|raw }}

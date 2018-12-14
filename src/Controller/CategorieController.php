@@ -27,56 +27,8 @@ use Cake\ORM\TableRegistry;
  *
  * @link https://book.cakephp.org/3.0/en/controllers/pages-controller.html
  */
-class MovieController extends AppController
+class CategorieController extends AppController
 {
-
-
-    public function movieActor($id){
-
-        $movie = TableRegistry::get('Movies')->find()
-        ->where([
-          'Movies.id' => $id
-        ])
-        ->contain([
-            'Actors',
-            'Actors.Categories',
-        ])
-        ->first();
-
-        debug($movie);
-        die();
-    }
-
-    public function movieCategorie($id){
-
-        $movie = TableRegistry::get('Movies')->find()
-        ->where([
-          'Movies.id' => $id
-        ])
-        ->contain([
-            'Categories'
-        ])
-        ->first();
-
-        debug($movie);
-        die();
-    }
-
-    public function producerMovie($id){
-
-        $movie = TableRegistry::get('Movies')->find()
-        ->where([
-          'Movies.id' => $id
-        ])
-        ->contain([
-            'Producers',
-            'Producers.Movies'
-        ])
-        ->first();
-
-        debug($movie);
-        die();
-    }
 
     /**
      * Create a new Actor
@@ -105,46 +57,13 @@ class MovieController extends AppController
     public function list(){
 
         // -> Find Actor and turns it into an array
-        $movies = TableRegistry::get('Movies')->find()
+        $categories = TableRegistry::get('Categories')->find()
         ->contain([
-            'Actors',
-            'Categories',
-            'Producers',
-            'Producers.Movies'
+            'Movies'
         ]);
 
         // -> Set Actor to view
-        $this->set(compact('movies'));
-
-
-    }
-
-
-    /**
-     * List a Movie
-     */
-    public function movie($id){
-
-        // -> Find Actor and turns it into an array
-        $movie = TableRegistry::get('Movies')->find()
-        ->where([
-            'Movies.id' => $id
-        ])
-        ->contain([
-            'Actors',
-            'Categories',
-            'Producers',
-            'Producers.Movies',
-            'Comments',
-            'Comments.Movies'
-        ])
-        ->first();
-
-        // -> Set Actor to view
-        $this->set(compact('movie'));
-        // debug($movie);
-        // die();
-
+        $this->set(compact('categories'));
     }
 
 

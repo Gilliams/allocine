@@ -1,0 +1,197 @@
+<!-- <table class="table">
+    <tr>
+        <th>Nom</th>
+        <th>Contenu</th>
+        <th>Acteurs</th>
+        <th>Categorie</th>
+        <th>Producteur</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr>
+        <td>
+            {{ movie.name|capitalize }}
+        </td>
+        <td>
+            {{ movie.contain|capitalize }}
+        </td>
+        <td>
+            {% for actor in movie.actors %}
+                {{ Html.link(actor.lastname, {'controller':'Actor', 'action': 'actor' ~ '/' ~ actor.id})|raw }} <br>
+            {% endfor %}
+        </td>
+        <td>
+            {% for categorie in movie.categories %}
+                {{ Html.link(categorie.name, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }} <br>
+            {% endfor %}
+        </td>
+        <td>
+            {{ Html.link(movie.producer.name, {'controller':'Producer', 'action': 'producer' ~ '/' ~ producer.id})|raw }} <br>
+        </td>
+        <td>
+            <button type="button" name="button" class="btn btn-warning">
+                {{ Html.link('Edit','/film/' ~ movie.id)|raw }}
+            </button>
+        </td>
+        <td>
+            <button type="button" name="button" class="btn btn-danger">
+                {{ Html.link('Delete', {'controller':'Movie', 'action': 'delete' ~ '/' ~ movie.id})|raw }}
+            </button>
+        </td>
+    </tr>
+</table> -->
+
+
+
+<section id="movie">
+    <div class="header">
+        <div class="row breadcrumbs">
+            {{ Html.link('Accueil', {'controller':'Movie', 'action': 'list'})|raw }} > {{ Html.link('Cinéma', {'controller':'Movie', 'action': 'list'})|raw }} > {{ Html.link('Films à l\'affiche', {'controller':'Movie', 'action': 'list'})|raw }} > {{ movie.name|capitalize }}
+        </div>
+        <div class="row title justify-content-md-center">
+            <h2>{{ movie.name|capitalize }}</h2>
+        </div>
+    </div>
+    <div class="nav">
+        {{ Html.link(Html.image('home-button.png', {'class':'icone'}), {'controller':'Movie', 'action': 'list'},{'escape': false})|raw }}
+        {{ Html.link('Séances', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('Bandes-annonces', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('Casting', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('Critiques et spectateurs', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('Critique presse', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('Photo', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('VOD', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('+', {'controller':'Movie', 'action': 'list'})|raw }}
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row container">
+                <div class="col-md-4 cover">
+                    {{ Html.image(movie.img_url)|raw }}
+                </div>
+                <div class="col-md-8 content">
+                    <div class="text">
+                        <p><span>Date de sortie</span> {{ Html.link(movie.created, {'controller':'Movie', 'action': 'list'}, {'class':'bold'})|raw }} ({{movie.duration}})</p>
+                        <p>
+                            <span>De</span>
+                            {{ Html.link(movie.producer.name, {'controller':'Producer', 'action': 'producer' ~ '/' ~ producer.id})|raw }}
+                        </p>
+                        <p>
+                            <span>Avec</span>
+                            {% for actor in movie.actors %}
+                                {{ Html.link(actor.lastname, {'controller':'Actor', 'action': 'actor' ~ '/' ~ actor.id})|raw }}
+                            {% endfor %}
+                        </p>
+                        <p>
+                            <span>Genres</span>
+                            {% for categorie in movie.categories %}
+                                {{ Html.link(categorie.name, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }}
+                            {% endfor %}
+                        </p>
+                        <p><span>Nationalité</span> {{ Html.link('Français', {'controller':'Movie', 'action': 'list'})|raw }}</p>
+                    </div>
+                    <div class="row btn">
+                        {{ Html.link('Bande-Annonce', {'controller':'Movie', 'action': 'list'}, {'class':'button secondary'})|raw }}
+                        {{ Html.link('Seance(749)', {'controller':'Movie', 'action': 'list'}, {'class':'button primary'})|raw }}
+                    </div>
+                    <div class="row notation">
+                        <div class="col-md-4">
+                            {{ Html.link('presse', {'controller':'Movie', 'action': 'list'}, {'class':'title'})|raw }}<br>
+                            <i class="fas fa-star small color"></i>
+                            <i class="fas fa-star small color"></i>
+                            <i class="fas fa-star small color"></i>
+                            <i class="fas fa-star small"></i>
+                            <i class="fas fa-star small"></i>
+                             <span>23 critiques</span>
+                        </div>
+                        <div class="col-md-4">
+                            {{ Html.link('spectateurs', {'controller':'Movie', 'action': 'list'}, {'class':'title'})|raw }}<br>
+                            <i class="fas fa-star small color"></i>
+                            <i class="fas fa-star small color"></i>
+                            <i class="fas fa-star small color"></i>
+                            <i class="fas fa-star small color"></i>
+                            <i class="fas fa-star small"></i>
+                            <span>859 notes dont 121 critiques</span>
+                        </div>
+                        <div class="col-md-4">
+                            {{ Html.link('mes amis', {'controller':'Movie', 'action': 'list'}, {'class':'title'})|raw }}<br>
+                            <i class="fas fa-star small color"></i>
+                            <i class="fas fa-star small"></i>
+                            <i class="fas fa-star small"></i>
+                            <i class="fas fa-star small"></i>
+                            <i class="fas fa-star small"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row actions">
+                <div class="item mid left">
+                    Noter :
+                    <i class="fas fa-star normal color"></i>
+                    <i class="fas fa-star normal"></i>
+                    <i class="fas fa-star normal"></i>
+                    <i class="fas fa-star normal"></i>
+                    <i class="fas fa-star normal"></i>
+                </div>
+                <div class="item mid">
+                    <i class="far fa-bookmark"></i>
+                    {{ Html.link('envie de voir', {'controller':'Movie', 'action': 'list'}, {'class':'title'})|raw }}
+                </div>
+                <div class="item mid">
+                     <i class="fas fa-pen"></i>
+                    {{ Html.link('Rédiger ma critique', {'controller':'Comment', 'action': 'new'}, {'class':'title'})|raw }}
+                </div>
+                <div class="item">
+                    <a href="" class="title">
+                        <i class="fas fa-share"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row synopsis">
+                <div class="col">
+                    <div class="row">
+                        <h3>Synopsis et détails</h3>
+                    </div>
+                    <div class="row">
+                        <!-- <p>A partir de 3 ans </p> -->
+                    </div>
+                    <div class="row">
+                        <p>{{ movie.contain|capitalize }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <h4>Critque Press</h4>
+            </div>
+            <div class="row">
+                {% for comment in movie.comments %}
+                    <h3>{{ comment.score}}</h3>
+                    <h4>{{ comment.newspapper}}</h4>
+                    {{ comment.author}}
+                    {{ comment.contain}}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <h4>Critque Spéctateurs</h4>
+            </div>
+            <div class="row">
+                {% for comment in movie.comments %}
+                    <h3>{{ comment.score}}</h3>
+                    {{ comment.author}}
+                    <b>{{ comment.date|date('d/m/Y')}}</b>
+                    {{ comment.contain}}
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</section>

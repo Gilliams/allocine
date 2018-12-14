@@ -3,7 +3,13 @@
 
 
 {{ Form.create(movie)|raw }}
+
     {{ Form.control('name',{'label': __('Nom du film')})|raw }}
     {{ Form.control('contain',{'type': 'textarea','label': __('Description du film')})|raw }}
+    {{ Form.control('created',{'label': __('Sortie du film')})|raw }}
+    {{ Form.control('producer_id',{'type': 'select','label': __('ID du producteur')})|raw }}
+    {{ Form.control('nationality',{'label': __('Nationalité du film')})|raw }}
+    {{ Form.control('duration',{'label': __('Durée du film')})|raw }}
+    {{ Form.control('img_url',{'label': __('Affiche du film')})|raw }}
     {{ Form.button('Editer')|raw }}
 {{ Form.end()|raw }}

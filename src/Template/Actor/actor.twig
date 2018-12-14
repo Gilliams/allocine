@@ -1,0 +1,140 @@
+<section id="actor">
+    <div class="header">
+        <div class="row breadcrumbs">
+            {{ Html.link('Accueil', {'controller':'Movie', 'action': 'list'})|raw }} > {{ Html.link('Stars', {'controller':'Actor', 'action': 'list'})|raw }} > {{ Html.link('Acteur', {'controller':'Actor', 'action': 'list'})|raw }} > {{ Html.link('Acteur français', {'controller':'Actor', 'action': 'list'})|raw }} > {{ actor.firstname|capitalize }} {{ actor.lastname|capitalize }}
+        </div>
+        <div class="row title justify-content-md-center">
+            <h2>{{ actor.firstname|capitalize }} {{ actor.lastname|capitalize }}</h2>
+        </div>
+    </div>
+    <div class="nav">
+        {{ Html.link(Html.image('home-button.png', {'class':'icone'}), {'controller':'Movie', 'action': 'list'},{'escape': false})|raw }}
+        {{ Html.link('Biographie', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('Filmographie', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('Top films/séries', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('Photos', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('Récompenses', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('News', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('Vidéos', {'controller':'Movie', 'action': 'list'})|raw }}
+        {{ Html.link('+', {'controller':'Movie', 'action': 'list'})|raw }}
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row container">
+                <div class="col-md-4 cover">
+                    {{ Html.image(actor.img)|raw }}
+                </div>
+                <div class="col-md-8 content">
+                    <div class="text">
+                        <p><span>Nationalité</span>{{actor.country}}</p>
+                        <p><span>Naissance</span> {{ Html.link('25 décembre 1948', {'controller':'Movie', 'action': 'list'})|raw }}</p>
+                        <p><span>Age</span> 69 ans</p>
+                    </div>
+                    <div class="row stats">
+                        <div class="col-md-6 stats-item">
+                            <span>{{actor.career}}</span><br>
+                            <p>ans de carriere</p>
+                        </div>
+                        <div class="col-md-6 stats-item">
+                            <span>61</span><br>
+                            <p>films et séries tournés</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row synopsis">
+                <div class="col">
+                    <div class="row">
+                        {{ Html.link('Biographie', {'controller':'Movie', 'action': 'list'}, {'class':'title'})|raw }}
+                    </div>
+                    <div class="row">
+                        <p>Beaucoup vu au théâtre, son rôle le plus marquant au cinéma fut celui de l'hiberné dans le film "Hibernatus" (où en fait sa mère ne s'appelle pas Léontine mais Edmée, Edmée...Edmée... Edmée...).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row filmography">
+                <div class="col">
+                    <div class="row">
+                        {{ Html.link('Filmographie', {'controller':'Movie', 'action': 'list'}, {'class':'title'})|raw }}
+                    </div>
+                    <div class="row">
+                        <div class="block-cinema">
+                            <div class="row group-card">
+                                <div class="card-deck">
+                                    <div class="card">
+                                        {{ Html.image('asterix.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Asterix - Le secret de la potion magique'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Bryan Singer</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('asterix-domaine.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Asterix - Le domaine des dieux'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Pierre Salvadori</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('quinze.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('15 jours ailleurs'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Vianney Lebasque</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('camping.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Camping Paradis'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Paolo Sorrentino</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row group-card">
+                                <div class="card-deck">
+                                    <div class="card">
+                                        {{ Html.image('asterix.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Asterix - Le secret de la potion magique'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Bryan Singer</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('asterix-domaine.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Asterix - Le domaine des dieux'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Pierre Salvadori</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('quinze.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('15 jours ailleurs'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Vianney Lebasque</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        {{ Html.image('camping.jpg', {'class':'img--medium'})|raw }}
+                                        <div class="card-body">
+                                            {{ Html.link(__('Camping Paradis'), {'controller':'Movie', 'action': 'list'},{'class':'card-text'})|raw }}
+                                            <p class="card-text small">De Paolo Sorrentino</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row link">
+                                    {{ Html.link(__('Toute sa filmographie'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                    <p> - </p>
+                                    {{ Html.link(__('Ses meilleurs films / séries'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                    <p> - </p>
+                                    {{ Html.link(__('Speednoter sa filmo'), {'controller':'Movie', 'action': 'list'},{'class':'card-text link-end'})|raw }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

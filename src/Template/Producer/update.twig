@@ -1,0 +1,9 @@
+<h1>{{ movie.name }}</h1>
+<p>{{ movie.contain }}</p>
+
+
+{{ Form.create(movie)|raw }}
+    {{ Form.control('name',{'label': __('Nom du film')})|raw }}
+    {{ Form.control('contain',{'type': 'textarea','label': __('Description du film')})|raw }}
+    {{ Form.button('Editer')|raw }}
+{{ Form.end()|raw }}

@@ -1,0 +1,50 @@
+
+<button type="button" name="button" >
+    {{ Html.link('Nouveau Commentaire', {'controller':'Comment', 'action': 'new'})|raw }}
+</button>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Journal</th>
+        <th>Auteur</th>
+        <th>Note</th>
+        <th>Contenu</th>
+        <th>Date</th>
+        <th>Film</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for comment in comments %}
+
+        <tr>
+            <td>
+                {{ comment.id }}
+            </td>
+            <td>
+                {{ comment.newspapper|capitalize }}
+            </td>
+            <td>
+                {{ comment.author|capitalize }}
+            </td>
+            <td>
+                {{ comment.score|capitalize }}
+            </td>
+            <td>
+                {{ comment.contain|capitalize }}
+            </td>
+            <td>
+                {{ comment.date|date('d/m/Y') }}
+            </td>
+            <td>
+                {{ Html.link(comment.movie.name, {'controller':'Movie', 'action': 'movie' ~ '/' ~ movie.id})|raw }}<br>
+            </td>
+            <td>
+                {{ Html.link('Edit','/comment/' ~ comment.id)|raw }}
+            </td>
+            <td>
+                {{ Html.link('Delete', {'controller':'Comment', 'action': 'delete' ~ '/' ~ comment.id})|raw }}
+            </td>
+        </tr>
+
+    {% endfor %}
+</table>

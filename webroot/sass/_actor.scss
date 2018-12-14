@@ -1,0 +1,121 @@
+#actor{
+    .header{
+        .breadcrumbs{
+            color: #b3b3b3;
+            font-weight: 400;
+            font-size: .6875rem;
+            padding: 10px 0px 0px 20px;
+        }
+        .title{
+            text-align: center;
+            h1{
+                text-transform: uppercase;
+            }
+        }
+    }
+    .nav{
+        justify-content: center;
+        font-weight: 700;
+        text-align: center;
+        color: #333;
+        margin: 20px 0 20px;
+        a{
+            border-left: 1px solid #dedede;
+            border-top: 1px solid #dedede;
+            border-bottom: 1px solid #dedede;
+            padding: 12px;
+            color: #333;
+        }
+        .icone{
+            @include re-sizing-icone(16px);
+        }
+
+    }
+    .container{
+        padding-bottom: 20px;
+        .content{
+            .text{
+                margin-bottom: 20px;
+            }
+            p{
+                line-height: 1.5;
+                font-size: .8125rem;
+                margin: 6px 0 6px 0;
+            }
+            .bold{
+                font-weight: 700;
+            }
+            span{
+                color: #b3b3b3;
+                text-align: center;
+            }
+            .stats{
+                color: #b3b3b3;
+                text-transform: uppercase;
+                text-align: center;
+                line-height: 1.2;
+                font-size: 10px;
+                span{
+                    font-size: 1.75rem;
+                    font-weight: 700;
+                    color: #333;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+    .title{
+        font-size      : $font-size--x-large;
+        font-weight    : $font-weight--bold;
+        text-transform : uppercase;
+        color          : $color-secondary;
+    }
+    .filmography{
+
+    }
+    .block-cinema{
+        margin-bottom: 30px;
+        .group-card{
+            margin-top: 10px;
+        }
+        .icone{
+            @include re-sizing-icone(19px);
+            display: inline-block;
+        }
+        .resize-col{
+            padding: 0px;
+        }
+        .card-deck{
+            @include margin-r-l(0px,0px);
+            .card{
+                border: none;
+                margin: 0px 20px 0px 0px;
+                width: 150px;
+                .card-body{
+                    padding: 0px;
+                    padding-top: 5px;
+                    @include text-too-long();
+                    .card-text{
+                        padding: -5px;
+                        @include text-too-long();
+                    }
+                }
+                a{
+                    color: $color-secondary;
+                    font-weight:  $font-weight--bold;
+
+                    &:hover{
+                        text-decoration: none;
+                        color:$color-blue;
+                    }
+                }
+            }
+        }
+        .link{
+            p{
+                margin: 0 5px 0 5px;
+                padding-top: 10px;
+            }
+        }
+    }
+}

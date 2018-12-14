@@ -57,10 +57,37 @@ Router::scope('/', function (RouteBuilder $routes) {
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
-     $routes->connect('/movie/new', ['controller' => 'Movie', 'action' => 'new']);
-     $routes->connect('/movie/delete/*', ['controller' => 'Movie', 'action' => 'delete']);
-     $routes->connect('/movie/*', ['controller' => 'Movie', 'action' => 'update']);
-     $routes->connect('/movies/*', ['controller' => 'Movie', 'action' => 'list']);
+     // $routes->connect('/movie/new', ['controller' => 'Movie', 'action' => 'new']);
+     // $routes->connect('/movie/delete/*', ['controller' => 'Movie', 'action' => 'delete']);
+     // $routes->connect('/movie/*', ['controller' => 'Movie', 'action' => 'update']);
+     // $routes->connect('/movies/*', ['controller' => 'Movie', 'action' => 'list']);
+
+     // Ancienne url ?
+     //$routes->connect('/film/:id', ['controller' => 'Movie', 'action' => 'movie']);
+
+
+     //$routes->connect('/acteur/:id', ['controller' => 'Actor', 'action' => 'actor']);
+
+     // $routes->connect('/acteurs/:id', ['controller' => 'Actor', 'action' => 'test'])->setPass(['id']);
+     // $routes->connect('/films/:id', ['controller' => 'Movie', 'action' => 'movieActor'])->setPass(['id']);
+     // $routes->connect('/categories/:id', ['controller' => 'Movie', 'action' => 'categorieMovie'])->setPass(['id']);
+     // $routes->connect('/producteurs/:id', ['controller' => 'Movie', 'action' => 'producerMovie'])->setPass(['id']);
+
+     // $routes->connect('/acteur/new', ['controller' => 'Actor', 'action' => 'new']);
+     // $routes->connect('/acteur/delete/*', ['controller' => 'Actor', 'action' => 'delete']);
+     // $routes->connect('/acteur/*', ['controller' => 'Actor', 'action' => 'update']);
+     // $routes->connect('/acteurs/*', ['controller' => 'Actor', 'action' => 'list']);
+
+     $routes->connect('/acteurs/*', ['controller' => 'Actor', 'action' => 'list']);
+     $routes->connect('/acteur/:id', ['controller' => 'Actor', 'action' => 'actor'])->setPass(['id']);
+     $routes->connect('/films', ['controller' => 'Movie', 'action' => 'list']);
+     $routes->connect('/film/:id', ['controller' => 'Movie', 'action' => 'movie'])->setPass(['id']);
+     $routes->connect('/film/*', ['controller' => 'Movie', 'action' => 'update']);
+     $routes->connect('/categories/*', ['controller' => 'Categorie', 'action' => 'list']);
+     $routes->connect('/commentaires/*', ['controller' => 'Comment', 'action' => 'list']);
+     $routes->connect('/commentaire/*', ['controller' => 'Comment', 'action' => 'update']);
+     $routes->connect('/producteurs/*', ['controller' => 'Producer', 'action' => 'list']);
+
 
     /**
      * Connect catchall routes for all controllers.

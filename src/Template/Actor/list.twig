@@ -1,0 +1,61 @@
+
+<button type="button" name="button" class="btn btn-dark" style="margin:20px;">
+    {{ Html.link('Nouvel Acteur', {'controller':'Actor', 'action': 'new'})|raw }}
+</button>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Pays</th>
+        <th>Date de naissance</th>
+        <th>Age</th>
+        <th>Films</th>
+        <th>Fiche acteur</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for actor in actors %}
+            <tr>
+                <td>
+                    {{ actor.id }}
+                </td>
+                <td>
+                    {{ actor.firstname|capitalize }}
+                </td>
+                <td>
+                    {{ actor.lastname|capitalize }}
+                </td>
+                <td>
+                    {{ actor.country|capitalize }}
+                </td>
+                <td>
+                    {{ actor.birthday|date("d/m/Y") }}
+                </td>
+                <td>
+                    {{ actor.age}}
+                </td>
+                <td>
+                    {% for movie in actor.movies %}
+                    {{ Html.link(movie.name, {'controller':'Movie', 'action': 'movie' ~ '/' ~ movie.id})|raw }}<br>
+                    {% endfor %}
+                </td>
+                <td>
+                    <button type="button" name="button" class="btn">
+                        {{ Html.link('Fiche', {'controller':'Movie', 'action': 'actor' ~ '/' ~ actor.id})|raw }}<br>
+                    </button>
+                </td>
+                <td>
+                    <button type="button" name="button" class="btn btn-warning">
+                        {{ Html.link('Edit','/acteur/edit/' ~ actor.id)|raw }}
+                    </button>
+                </td>
+                <td>
+                    <button type="button" name="button" class="btn btn-danger">
+                        {{ Html.link('Delete', {'controller':'Actor', 'action': 'delete' ~ '/' ~ actor.id})|raw }}
+                    </button>
+                </td>
+            </tr>
+
+    {% endfor %}
+</table>

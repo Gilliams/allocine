@@ -1,0 +1,36 @@
+
+<button type="button" name="button" >
+    {{ Html.link('Nouvelle Categorie', {'controller':'Categorie', 'action': 'new'})|raw }}
+</button>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Films</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for categorie in categories %}
+
+        <tr>
+            <td>
+                {{ categorie.id }}
+            </td>
+            <td>
+                {{ categorie.name|capitalize }}
+            </td>
+            <td>    
+                {% for movie in categorie.movies %}
+                {{ Html.link(movie.name, {'controller':'Movie', 'action': 'movie' ~ '/' ~ movie.id})|raw }}<br>
+                {% endfor %}
+            </td>
+            <td>
+                {{ Html.link('Edit','/categorie/' ~ categorie.id)|raw }}
+            </td>
+            <td>
+                {{ Html.link('Delete', {'controller':'Categorie', 'action': 'delete' ~ '/' ~ categorie.id})|raw }}
+            </td>
+        </tr>
+
+    {% endfor %}
+</table>

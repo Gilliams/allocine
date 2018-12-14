@@ -1,0 +1,36 @@
+
+<button type="button" name="button" >
+    {{ Html.link('Nouveau Film', {'controller':'Producer', 'action': 'new'})|raw }}
+</button>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Films produits</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for producer in producers %}
+
+        <tr>
+            <td>
+                {{ producer.id }}
+            </td>
+            <td>
+                {{ producer.name|capitalize }}
+            </td>
+            <td>
+                {% for movie in producer.movies %}
+                {{ Html.link(movie.name, {'controller':'Movie', 'action': 'movie' ~ '/' ~ movie.id})|raw }}<br>
+                {% endfor %}
+            </td>
+            <td>
+                {{ Html.link('Edit','/producer/' ~ producer.id)|raw }}
+            </td>
+            <td>
+                {{ Html.link('Delete', {'controller':'Producer', 'action': 'delete' ~ '/' ~ producer.id})|raw }}
+            </td>
+        </tr>
+
+    {% endfor %}
+</table>

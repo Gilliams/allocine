@@ -1,0 +1,18 @@
+{ {{% for actor in actors %}}
+    <p>{{ actor.lastname }}</p>
+    <p>{{ actor.firstname }}</p>
+    <p>{{ actor.profession }}</p>
+    <p>{{ actor.country }}</p>
+    <p>{{ actor.birthday }}</p>
+    <p>{{ actor.age }}</p>
+{{% endfor %}} }
+
+{{ Form.create('Post')|raw }}
+    {{ Form.control('lastname',{'label': __('Nom')},{'class':'form-control'})|raw }}
+    {{ Form.control('firstname',{'label': __('Prénom')})|raw }}
+    {{ Form.control('profession',{'label': __('Métier')})|raw }}
+    {{ Form.control('country',{'label': __('Pays')})|raw }}
+    {{ Form.control('birthday',{'label': __('Date de naissance')})|raw }}
+    {{ Form.control('age',{'label': __('Age')})|raw }}
+    {{ Form.button('Ajouter')|raw }}
+{{ Form.end()|raw }}

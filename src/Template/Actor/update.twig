@@ -1,0 +1,16 @@
+<h1>{{ actor.lastname }} {{ actor.firstname }}</h1>
+<p>{{ actor.profession }}</p>
+<p>{{ actor.country }}</p>
+<p>{{ actor.birthday }}</p>
+<p>{{ actor.age }}</p>
+
+
+{{ Form.create(actor)|raw }}
+    {{ Form.control('lastname',{'label': __('Nom')})|raw }}
+    {{ Form.control('firstname',{'label': __('Prénom')})|raw }}
+    {{ Form.control('profession',{'label': __('Métier')})|raw }}
+    {{ Form.control('country',{'label': __('Pays')})|raw }}
+    {{ Form.control('birthday',{'label': __('Date de naissance')})|raw }}
+    {{ Form.control('age',{'label': __('Age')})|raw }}
+    {{ Form.button('Editer')|raw }}
+{{ Form.end()|raw }}
