@@ -9,6 +9,8 @@
         <th>Contenu</th>
         <th>Date</th>
         <th>Categorie</th>
+        <th>Seance</th>
+        <th>Cinéma</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -29,8 +31,14 @@
             </td>
             <td>
                 {% for categorie in movie.categories %}
-                    {{ Html.link(categorie.name, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }} <br>
+                    {{ Html.link(categorie.name, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }}
                 {% endfor %}
+            </td>
+            <td>
+                {{ Html.link(movie.session.time, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }} <br>
+            </td>
+            <td>
+                {{ Html.link(movie.cinema.name, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }} <br>
             </td>
             <td>
                 {{ Html.link('Edit','/film/editer/' ~ movie.id)|raw }}

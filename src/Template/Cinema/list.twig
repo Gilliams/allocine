@@ -1,0 +1,40 @@
+<table class="table">
+    <tr>
+        <th>Nom</th>
+        <th>Adresse</th>
+        <th>Nombre de salle</th>
+        <th>Films</th>
+        <th>Ville</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for cinema in cinemas %}
+
+        <tr>
+            <td>
+                {{ cinema.name|raw }}
+            </td>
+            <td>
+                {{ cinema.adresse|raw }}
+            </td>
+            <td>
+                {{ cinema.nb_room|raw }}
+            </td>
+            <td>
+                {% for movie in cinema.movies %}
+                    {{ Html.link(movie.name, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }} <br>
+                {% endfor %}
+            </td>
+            <td>
+                {{ Html.link(cinema.city.name, {'controller':'City', 'action': 'ville' ~ '/' ~ ville.id})|raw }}
+            </td>
+            <td>
+                {{ Html.link('Edit','/film/editer/' ~ movie.id)|raw }}
+            </td>
+            <td>
+                {{ Html.link('Delete', {'controller':'Movie', 'action': 'delete' ~ '/' ~ movie.id})|raw }}
+            </td>
+        </tr>
+
+    {% endfor %}
+</table>

@@ -74,8 +74,8 @@ class MovieController extends AppController
         ])
         ->first();
 
-        debug($movie);
-        die();
+        // debug($movie);
+        // die();
     }
 
     /**
@@ -110,12 +110,15 @@ class MovieController extends AppController
             'Actors',
             'Categories',
             'Producers',
-            'Producers.Movies'
+            'Producers.Movies',
+            'Cinemas',
+            'Sessions',
         ]);
 
         // -> Set Actor to view
         $this->set(compact('movies'));
-
+        // debug($movies);
+        // die();
 
     }
 

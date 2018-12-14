@@ -8,6 +8,10 @@ class MoviesTable extends Table
     public function initialize(array $config){
 
         $this->setTable('movies');
+        $this->hasMany('Comments')
+        ->setForeignKey([
+            'movie_id'
+        ]);
         $this->belongsToMany('Actors',[
             'joinTable' => 'movies_actors',
             'foreignKey' => 'movie_id',
@@ -21,10 +25,15 @@ class MoviesTable extends Table
         $this->belongsTo('Producers')
         ->setForeignKey('producer_id')
         ->setJoinType('INNER');
-        $this->hasMany('Comments')
-        ->setForeignKey([
-            'movie_id'
-        ]);
+
+        $this->belongsTo('Sessions')
+        ->setForeignKey('session_id')
+        ->setJoinType('INNER');
+        
+        $this->belongsTo('Cinemas')
+        ->setForeignKey('cinema_id')
+        ->setJoinType('INNER');
+
     }
 }
 ?>

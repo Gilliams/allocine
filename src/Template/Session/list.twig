@@ -1,0 +1,34 @@
+<table class="table">
+    <tr>
+        <th>Date</th>
+        <th>Heure</th>
+        <th>Film</th>
+        <th>Cinéma</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for session in sessions %}
+
+        <tr>
+            <td>
+                {{ session.date|raw }}
+            </td>
+            <td>
+                {{ session.time|raw }}
+            </td>
+            <td>
+                {{ Html.link(session.movie.name, {'controller':'Cinema', 'action': 'cinema' ~ '/' ~ cinema.id})|raw }}
+            </td>
+            <td>
+                {{ Html.link(session.cinema.name, {'controller':'Cinema', 'action': 'cinema' ~ '/' ~ cinema.id})|raw }}
+            </td>
+            <td>
+                {{ Html.link('Edit','/film/editer/' ~ movie.id)|raw }}
+            </td>
+            <td>
+                {{ Html.link('Delete', {'controller':'Movie', 'action': 'delete' ~ '/' ~ movie.id})|raw }}
+            </td>
+        </tr>
+
+    {% endfor %}
+</table>

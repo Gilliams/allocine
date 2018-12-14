@@ -88,6 +88,9 @@ Router::scope('/', function (RouteBuilder $routes) {
      $routes->connect('/commentaires', ['controller' => 'Comment', 'action' => 'list']);
         $routes->connect('/commentaire/*', ['controller' => 'Comment', 'action' => 'update']);
      $routes->connect('/producteurs', ['controller' => 'Producer', 'action' => 'list']);
+     $routes->connect('/seances', ['controller' => 'Session', 'action' => 'list']);
+     $routes->connect('/cinemas', ['controller' => 'Cinema', 'action' => 'list']);
+     $routes->connect('/villes', ['controller' => 'City', 'action' => 'list']);
 
 
     /**

@@ -1,0 +1,28 @@
+<table class="table">
+    <tr>
+        <th>Ville</th>
+        <th>Cinema</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for city in citys %}
+
+        <tr>
+            <td>
+                {{ city.name|raw }}
+            </td>
+            <td>
+                {% for cinema in city.cinemas %}
+                    {{ Html.link(cinema.name, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }} <br>
+                {% endfor %}
+            </td>
+            <td>
+                {{ Html.link('Edit','/film/editer/' ~ movie.id)|raw }}
+            </td>
+            <td>
+                {{ Html.link('Delete', {'controller':'Movie', 'action': 'delete' ~ '/' ~ movie.id})|raw }}
+            </td>
+        </tr>
+
+    {% endfor %}
+</table>
