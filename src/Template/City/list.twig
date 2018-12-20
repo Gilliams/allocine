@@ -13,14 +13,14 @@
             </td>
             <td>
                 {% for cinema in city.cinemas %}
-                    {{ Html.link(cinema.name, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }} <br>
+                    {{ Html.link(cinema.name, '/cinema/' ~ '/' ~ cinema.id)|raw }} <br>
                 {% endfor %}
             </td>
             <td>
-                {{ Html.link('Edit','/film/editer/' ~ movie.id)|raw }}
+                {{ Html.link('Edit','/ville/editer/' ~ city.id)|raw }}
             </td>
             <td>
-                {{ Html.link('Delete', {'controller':'Movie', 'action': 'delete' ~ '/' ~ movie.id})|raw }}
+                {{ Html.link('Delete', {'controller':'Citys', 'action': 'delete' ~ '/' ~ city.id})|raw }}
             </td>
         </tr>
 

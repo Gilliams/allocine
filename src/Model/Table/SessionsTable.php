@@ -9,10 +9,15 @@ class SessionsTable extends Table
     {
         $this->setTable('sessions');
 
-        $this->hasOne('Movies')
-        ->setForeignKey('session_id')
-        ->setJoinType('INNER');
+        // Changment de l'ancien code pour belongsTo - hasMany
+        // $this->hasOne('Movies')
+        // ->setForeignKey('session_id')
+        // ->setJoinType('INNER');
 
+        $this->belongsTo('Movies')
+        ->setForeignKey('movie_id')
+        ->setJoinType('INNER');
+        
         $this->belongsTo('Cinemas')
         ->setForeignKey('cinema_id')
         ->setJoinType('INNER');

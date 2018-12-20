@@ -330,7 +330,8 @@ header {
     header .form-search button {
       height: 33px;
       background-color: #1E1E1E;
-      color: #fff; }
+      color: #fff;
+      border: none; }
   header input {
     width: 310px;
     height: 33px;
@@ -730,7 +731,10 @@ footer {
   #movie .header .title h1 {
     text-transform: uppercase; }
 #movie .nav {
-  justify-content: center;
+  flex: auto;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: stretch;
   font-weight: 700;
   text-align: center;
   color: #333;
@@ -739,11 +743,26 @@ footer {
     border-left: 1px solid #dedede;
     border-top: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
-    padding: 12px;
+    padding: 10px 22.5px;
     color: #333; }
+    #movie .nav a .tiket::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 20px;
+      content: "\f3ff";
+      margin-right: 7px; }
+    #movie .nav a .play::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 20px;
+      content: "\f144";
+      margin-right: 7px; }
   #movie .nav .icone {
-    width: 16px;
-    height: 16px; }
+    width: 28px;
+    height: 28px;
+    margin-right: 5px; }
+    #movie .nav .icone:before {
+      font-size: 28px; }
 #movie .container {
   padding-bottom: 20px; }
   #movie .container .content .text {
@@ -831,7 +850,10 @@ footer {
   #actor .header .title h1 {
     text-transform: uppercase; }
 #actor .nav {
-  justify-content: center;
+  flex: auto;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: stretch;
   font-weight: 700;
   text-align: center;
   color: #333;
@@ -840,11 +862,19 @@ footer {
     border-left: 1px solid #dedede;
     border-top: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
-    padding: 12px;
+    padding: 10px 29.75px;
     color: #333; }
+    #actor .nav a .add {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 28px;
+      content: "\f3ff"; }
+    #actor .nav a:hover {
+      background-color: #dedede; }
   #actor .nav .icone {
-    width: 16px;
-    height: 16px; }
+    width: 28px;
+    height: 28px;
+    font-size: 28px; }
 #actor .container {
   padding-bottom: 20px; }
   #actor .container .content .text {
@@ -913,5 +943,178 @@ footer {
   #actor .block-cinema .link p {
     margin: 0 5px 0 5px;
     padding-top: 10px; }
+
+#cinema header {
+  height: 200px;
+  background-image: url("../img/theater-cover.jpg"); }
+  #cinema header a {
+    color: #fff; }
+  #cinema header .breadcrumb {
+    background-color: transparent !important;
+    color: #fff; }
+    #cinema header .breadcrumb-item + .breadcrumb-item::before {
+      content: ">";
+      vertical-align: top;
+      color: #fff;
+      font-size: 15px;
+      line-height: 18px; }
+  #cinema header .info-title {
+    text-align: center; }
+    #cinema header .info-title span {
+      color: #fff;
+      font-size: 2.1875rem;
+      margin-left: 270px;
+      margin-top: 50px; }
+#cinema .theater-header {
+  position: relative;
+  height: 161px;
+  border-bottom: 1px solid #d5d5d5; }
+  #cinema .theater-header .cine-img {
+    position: absolute;
+    margin-left: 20px;
+    margin-right: 20px;
+    transform: translateY(-50%);
+    margin-top: 5%;
+    height: auto;
+    width: 230px; }
+  #cinema .theater-header .theater-info-top {
+    height: 70px;
+    width: 774px;
+    margin-left: 270px; }
+  #cinema .theater-header .theater-info-bottom {
+    height: 70px;
+    border-top: 1px solid #d5d5d5;
+    margin-left: 270px; }
+    #cinema .theater-header .theater-info-bottom .card {
+      font-weight: 700;
+      background: #e0e0e0;
+      border: 1px solid #b3b3b3;
+      text-transform: uppercase;
+      line-height: 1.5625rem;
+      padding: 0 .3125rem;
+      font-size: .6875rem;
+      margin-right: .1875rem;
+      margin-bottom: .1875rem; }
+    #cinema .theater-header .theater-info-bottom .case {
+      text-align: center;
+      padding: 11px 20px 11px 20px;
+      border-left: 1px solid #d5d5d5;
+      text-align: center;
+      min-height: 4.375rem; }
+    #cinema .theater-header .theater-info-bottom .room .number {
+      font-weight: bold;
+      font-size: 1.75rem; }
+    #cinema .theater-header .theater-info-bottom .handicap {
+      font-size: 28px;
+      padding-top: 20px; }
+#cinema .theater-menu {
+  margin: 40px 0 40px; }
+  #cinema .theater-menu .item {
+    padding: .625rem;
+    line-height: 1.5;
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
+    text-align: center;
+    font-weight: 700; }
+    #cinema .theater-menu .item a {
+      color: #1E1E1E; }
+      #cinema .theater-menu .item a:hover {
+        color: #1E1E1E !important; }
+    #cinema .theater-menu .item:not(:first-child) {
+      border-left: 1px solid #d5d5d5; }
+    #cinema .theater-menu .item:hover {
+      background-color: #d5d5d5; }
+#cinema .data .item {
+  text-align: center;
+  background-color: #ececec;
+  width: 68px;
+  padding: 10px 8px;
+  border: 1px solid white; }
+#cinema .data .day {
+  font-size: .875rem; }
+#cinema .data .num {
+  font-size: 1.5rem; }
+#cinema .data .month {
+  font-size: .75rem; }
+#cinema .slick-slide {
+  color: #b3b3b3;
+  background-color: #f0f0f0;
+  text-align: center;
+  border: 1px solid #ececec;
+  text-transform: uppercase; }
+  #cinema .slick-slide:hover {
+    color: #1E1E1E;
+    background-color: #fff;
+    border-top: 2px solid #fecc00;
+    border-bottom: 0; }
+#cinema .slick-list {
+  width: 680px;
+  margin-left: 25px; }
+#cinema .slick-prev {
+  left: 0; }
+  #cinema .slick-prev:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 20px;
+    content: '\f104';
+    color: black;
+    margin: 0px; }
+#cinema .slick-next {
+  right: 0; }
+  #cinema .slick-next:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 20px;
+    content: "\f105";
+    margin: 0px; }
+#cinema .slick-arrow {
+  top: 17%;
+  height: 77px;
+  width: 25px;
+  margin-top: -13px;
+  position: absolute;
+  font-size: 0;
+  cursor: pointer;
+  border: 1px solid #ececec;
+  background-color: #fff; }
+#cinema #carousel .date {
+  text-align: center;
+  text-transform: uppercase;
+  width: 100px;
+  background-color: red; }
+#cinema #carousel a {
+  height: 100px !important; }
+#cinema #carousel .carousel-control-next {
+  height: 100px !important;
+  border: 1px solid #d5d5d5;
+  position: relative !important; }
+  #cinema #carousel .carousel-control-next .carousel-control-next-icon {
+    color: #1E1E1E;
+    background-color: red; }
+#cinema #carousel .carousel-control-prev {
+  height: 100px !important;
+  position: relative !important;
+  border: 1px solid #d5d5d5; }
+  #cinema #carousel .carousel-control-prev .carousel-control-prev-icon {
+    color: #1E1E1E;
+    background-color: red; }
+#cinema #carousel .carousel-inner {
+  width: 500px; }
+#cinema .card-movie {
+  margin: 40px 0px 40px 0px; }
+#cinema .card-info p {
+  font-weight: 700; }
+#cinema .card-info .row {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px; }
+#cinema .card-info .time {
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #FECC00;
+  font-weight: 700;
+  color: #fff; }
 
 /*# sourceMappingURL=application.css.map */

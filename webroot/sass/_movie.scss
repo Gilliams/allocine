@@ -14,7 +14,10 @@
         }
     }
     .nav{
-        justify-content: center;
+        flex: auto;
+        justify-content: space-between;
+        align-items: stretch;
+        align-content: stretch;
         font-weight: 700;
         text-align: center;
         color: #333;
@@ -23,13 +26,30 @@
             border-left: 1px solid #dedede;
             border-top: 1px solid #dedede;
             border-bottom: 1px solid #dedede;
-            padding: 12px;
+            padding: 10px 22.5px;
             color: #333;
+            .tiket::before{
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                font-size: 20px;
+                content: "\f3ff";
+                margin-right: 7px;
+            }
+            .play::before{
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                font-size: 20px;
+                content: "\f144";
+                margin-right: 7px;
+            }
         }
         .icone{
-            @include re-sizing-icone(16px);
+            @include re-sizing-icone(28px);
+            margin-right: 5px;
+            &:before{
+                font-size: 28px;
+            }
         }
-
     }
     .container{
         padding-bottom: 20px;

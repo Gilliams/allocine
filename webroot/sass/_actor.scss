@@ -14,7 +14,10 @@
         }
     }
     .nav{
-        justify-content: center;
+        flex: auto;
+        justify-content: space-between;
+        align-items: stretch;
+        align-content: stretch;
         font-weight: 700;
         text-align: center;
         color: #333;
@@ -23,13 +26,22 @@
             border-left: 1px solid #dedede;
             border-top: 1px solid #dedede;
             border-bottom: 1px solid #dedede;
-            padding: 12px;
+            padding: 10px 29.75px;
             color: #333;
+            .add{
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                font-size: 28px;
+                content: "\f3ff";
+            }
+            &:hover{
+                background-color: #dedede;
+            }
         }
         .icone{
-            @include re-sizing-icone(16px);
+            @include re-sizing-icone(28px);
+            font-size: 28px;
         }
-
     }
     .container{
         padding-bottom: 20px;

@@ -1,0 +1,229 @@
+#cinema{
+    header{
+        height: 200px;
+        background-image: url('../img/theater-cover.jpg');
+        a{
+            color: $white;
+        }
+        .breadcrumb{
+            background-color: transparent !important;
+            color: $white;
+            &-item+.breadcrumb-item::before {
+                content: ">";
+                vertical-align:top;
+                color: $white;
+                font-size:15px;
+                line-height:18px;
+            }
+        }
+        .info-title{
+            text-align: center;
+            span{
+                color: $white;
+                font-size: 2.1875rem;
+                margin-left: 270px;
+                margin-top: 50px;
+            }
+        }
+    }
+    .theater-header{
+        position: relative;
+        height: 161px;
+        border-bottom: 1px solid #d5d5d5;
+        .cine-img{
+            position: absolute;
+            margin-left: 20px;
+            margin-right: 20px;
+            transform: translateY(-50%);
+            margin-top: 5%;
+            height: auto;
+            width: 230px;
+        }
+        .theater-info-top{
+            height: 70px;
+            width: 774px;
+            margin-left: 270px;
+            p{
+
+            }
+        }
+        .theater-info-bottom{
+            height: 70px;
+            border-top: 1px solid #d5d5d5;
+            margin-left: 270px;
+            .card{
+                font-weight: 700;
+                background: #e0e0e0;
+                border: 1px solid #b3b3b3;
+                text-transform: uppercase;
+                line-height: 1.5625rem;
+                padding: 0 .3125rem;
+                font-size: .6875rem;
+                margin-right: .1875rem;
+                margin-bottom: .1875rem;
+            }
+            .case{
+                text-align: center;
+                padding: 11px 20px 11px 20px;
+                border-left: 1px solid #d5d5d5;
+                text-align: center;
+                min-height: 4.375rem;
+            }
+            .room{
+                .number{
+                    font-weight: bold;
+                    font-size: 1.75rem;
+                }
+            }
+            .handicap{
+                font-size: 28px;
+                padding-top: 20px;
+            }
+        }
+    }
+    .theater-menu{
+        margin: 40px 0 40px;
+        .item{
+            padding: .625rem;
+            line-height: 1.5;
+            border-top: 1px solid #d5d5d5;
+            border-bottom: 1px solid #d5d5d5;
+            text-align: center;
+            font-weight: $font-weight--bold;
+            a{
+                color: $black;
+                &:hover{
+                    color: $black !important;
+                }
+            }
+            &:not(:first-child){
+                border-left: 1px solid #d5d5d5;
+            }
+            &:hover{
+                background-color: #d5d5d5;
+            }
+        }
+    }
+    .data{
+        .item{
+            text-align: center;
+            background-color: #ececec;
+            width: 68px;
+            padding: 10px 8px;
+            border: 1px solid white;
+        }
+        .day{
+            font-size: .875rem;
+        }
+        .num{
+            font-size: 1.5rem;
+        }
+        .month{
+            font-size: .75rem;
+        }
+    }
+    .slick-slide {
+      color: #b3b3b3;
+      background-color: #f0f0f0;
+      text-align: center;
+      border: 1px solid #ececec;
+      text-transform: uppercase;
+      &:hover{
+          color: $black;
+          background-color: $white;
+          border-top: 2px solid #fecc00;
+          border-bottom: 0;
+      }
+    }
+    .slick-list{
+        width: 680px;
+        margin-left: 25px;
+    }
+    .slick-prev{
+      left: 0;
+      &:before{
+           font-family: "Font Awesome 5 Free";
+           font-weight: 900;
+           font-size: 20px;
+           content: '\f104';
+           color: black;
+           margin: 0px;
+      }
+    }
+    .slick-next{
+        right: 0;
+        &:before{
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 20px;
+            content: "\f105";
+            margin: 0px;
+        }
+    }
+
+    .slick-arrow{
+        top: 17%;
+        height: 77px;
+        width: 25px;
+        margin-top: -13px;
+        position: absolute;
+        font-size: 0;
+        cursor: pointer;
+        border: 1px solid #ececec;
+        background-color: $white;
+    }
+    #carousel{
+        .date{
+            text-align: center;
+            text-transform: uppercase;
+            width: 100px;
+            background-color: red;
+        }
+        a{
+            height: 100px !important;
+        }
+        .carousel-control-next{
+            height: 100px !important;
+            border: 1px solid #d5d5d5;
+            position: relative !important;
+            .carousel-control-next-icon{
+                color: $black;
+                background-color: red;
+            }
+        }
+        .carousel-control-prev{
+            height: 100px !important;
+            position: relative !important;
+            border: 1px solid #d5d5d5;
+            .carousel-control-prev-icon{
+                color: $black;
+                background-color: red;
+            }
+        }
+        .carousel-inner{
+            width: 500px;
+        }
+    }
+    .card-movie{
+        margin: 40px 0px 40px 0px;
+    }
+    .card-info{
+        p{
+            font-weight: $font-weight--bold;
+        }
+        .row{
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .time{
+            margin: 5px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 3px;
+            background-color: $color-primary;
+            font-weight: $font-weight--bold;
+            color: $white;
+        }
+    }
+}

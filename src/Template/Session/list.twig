@@ -11,22 +11,22 @@
 
         <tr>
             <td>
-                {{ session.date|raw }}
+                {{ session.date|date('d F Y') }}
             </td>
             <td>
-                {{ session.time|raw }}
+                {{ session.time|date('H:i') }}
             </td>
             <td>
-                {{ Html.link(session.movie.name, {'controller':'Cinema', 'action': 'cinema' ~ '/' ~ cinema.id})|raw }}
+                {{ Html.link(session.movie.name, '/movie' ~ '/' ~ session.movie.id)|raw }}
             </td>
             <td>
-                {{ Html.link(session.cinema.name, {'controller':'Cinema', 'action': 'cinema' ~ '/' ~ cinema.id})|raw }}
+                {{ Html.link(session.cinema.name, '/cinema' ~ '/' ~ session.cinema.id)|raw }}
             </td>
             <td>
-                {{ Html.link('Edit','/film/editer/' ~ movie.id)|raw }}
+                {{ Html.link('Edit','/session/editer/' ~ session.id)|raw }}
             </td>
             <td>
-                {{ Html.link('Delete', {'controller':'Movie', 'action': 'delete' ~ '/' ~ movie.id})|raw }}
+                {{ Html.link('Delete', {'controller':'Movie', 'action': 'delete' ~ '/' ~ session.id})|raw }}
             </td>
         </tr>
 

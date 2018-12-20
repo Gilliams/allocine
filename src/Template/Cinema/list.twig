@@ -12,7 +12,7 @@
 
         <tr>
             <td>
-                {{ cinema.name|raw }}
+                {{ Html.link(cinema.name,'/cinema/' ~ cinema.id)|raw }}
             </td>
             <td>
                 {{ cinema.adresse|raw }}
@@ -22,11 +22,11 @@
             </td>
             <td>
                 {% for movie in cinema.movies %}
-                    {{ Html.link(movie.name, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }} <br>
+                    {{ Html.link(movie.name, 'film' ~ '/' ~ movie.id)|raw }} <br>
                 {% endfor %}
             </td>
             <td>
-                {{ Html.link(cinema.city.name, {'controller':'City', 'action': 'ville' ~ '/' ~ ville.id})|raw }}
+                {{ Html.link(cinema.city.name, 'ville' ~ '/' ~ cinema.city.id)|raw }}
             </td>
             <td>
                 {{ Html.link('Edit','/film/editer/' ~ movie.id)|raw }}

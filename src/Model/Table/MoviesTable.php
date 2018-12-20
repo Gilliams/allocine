@@ -12,6 +12,11 @@ class MoviesTable extends Table
         ->setForeignKey([
             'movie_id'
         ]);
+        // Nouvelle Session en relation hasMany - belongsTo
+        $this->hasMany('Sessions')
+        ->setForeignKey([
+            'movie_id'
+        ]);
         $this->belongsToMany('Actors',[
             'joinTable' => 'movies_actors',
             'foreignKey' => 'movie_id',
@@ -26,10 +31,11 @@ class MoviesTable extends Table
         ->setForeignKey('producer_id')
         ->setJoinType('INNER');
 
-        $this->belongsTo('Sessions')
-        ->setForeignKey('session_id')
-        ->setJoinType('INNER');
-        
+        // Ancien code probablement foiré voir confirmation ...
+        // $this->belongsTo('Sessions')
+        // ->setForeignKey('session_id')
+        // ->setJoinType('INNER');
+
         $this->belongsTo('Cinemas')
         ->setForeignKey('cinema_id')
         ->setJoinType('INNER');

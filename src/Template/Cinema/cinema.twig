@@ -1,0 +1,131 @@
+<section id="cinema">
+    <header>
+        <div class="row">
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb ">
+                    <li class="breadcrumb-item "><a href="/" >Accueil</a></li>
+                    <li class="breadcrumb-item ">
+                        <a href="/cinemas">Cinéma</a>
+                    </li>
+                    <li class="breadcrumb-item " aria-current="page">{{cinema.name}}</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row info-title justify-content-start">
+            <span>{{cinema.name}}</span>
+        </div>
+    </header>
+    <div class="theater-header">
+        {{Html.image('Gaumont.jpg',{'class':'cine-img'})|raw}}
+        <div class="theater-info-top">
+            <p>{{cinema.adresse}}</p>
+        </div>
+        <div class="theater-info-bottom">
+            <div class="row">
+                <div class="col-md-10">
+                    <p>Cartes acceptées :</p>
+                    <div class="row">
+                        <span class="card">CHÈQUE CINÉMA UNIVERSEL</span>
+                        <span class="card">CARTE LE PASS</span>
+                    </div>
+                </div>
+                <div class="col-md-1 case room">
+                    <span class="number">{{cinema.nb_room}}</span>
+                    <span>salles</span>
+                </div>
+                <div class="col-md-1 case handicap">
+                	<i class="fas fa-wheelchair"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="theater-menu">
+        <div class="row">
+            <div class="col-md-2 item">
+                {{Html.link('Films à l\'affiche', {'controller':'Movies', 'action':'list'})|raw}}
+            </div>
+            <div class="col-md-2 item">
+                {{Html.link('Avant-premières', {'controller':'Cinemas', 'action':'list'})|raw}}
+            </div>
+            <div class="col-md-2 item">
+                {{Html.link('Prochainement', {'controller':'Cinemas', 'action':'list'})|raw}}
+            </div>
+            <div class="col-md-2 item">
+                {{Html.link('Evenements', {'controller':'Cinemas', 'action':'list'})|raw}}
+            </div>
+            <div class="col-md-2 item">
+                {{Html.link('Tarifs', {'controller':'Cinemas', 'action':'list'})|raw}}
+            </div>
+            <div class="col-md-2 item">
+                {{Html.link('Plan d\'accès', {'controller':'Cinemas', 'action':'list'})|raw}}
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row data">
+                {% for week in weeks %}
+                    {% for item in week %}
+                        <div class="row {{ item.num }}-{{ item.month }}">
+                            <div class="day">{{ item.days|length > 3 ? item.days|slice(0, 3) ~ '.' : item.days }}</div>
+                            <div class="num">{{ item.num }}</div>
+                            <div class="month">{{ item.month }}</div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            {% for movie in cinema.movies %}
+                {% for session in cinema.sessions %}
+                <div class="card-movie {{session.date|date('d-m-Y')}}">
+                {% endfor %}
+                    <div class="row ">
+                        <div class="col-md-4">
+                            {{Html.image(movie.img_url)|raw}}
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <h4>{{Html.link(movie.name, '/film/' ~ '/' ~ movie.id)|raw}}</h4>
+                            </div>
+                            <div class="row">
+                                {{movie.created|date('d F Y')}} / {{movie.duration}}
+                            </div>
+                            <div class="row">
+                                <span>De
+                                    {{Html.link(movie.producer.name, 'producter' ~ '/' ~ movie.producer.id)|raw}}
+                                </span>
+                            </div>
+                            <div class="row">
+                                <span>Avec
+                                    {% for actor in movie.actors %}
+                                    <a href="/acteur/{{actor.id}}">
+                                        {{actor.firstname}}
+                                        {{actor.lastname}}
+                                    </a>
+                                    {% endfor %}
+                                </span>
+
+                            </div>
+                            <div class="row">
+                                {{movie.contain|length > 200 ? movie.contain|slice(0, 250) ~ '...' : movie.contain}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row card-info">
+                        <div class="row">
+                            <p>En VF, Numérique</p>
+                        </div>
+                        <div class="row">
+                            {% for session in cinema.sessions %}
+                                <div class="time">
+                                    <span>{{session.time|date('H:i')}}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>

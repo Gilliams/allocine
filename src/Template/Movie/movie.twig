@@ -54,8 +54,8 @@
     </div>
     <div class="nav">
         {{ Html.link(Html.image('home-button.png', {'class':'icone'}), {'controller':'Movie', 'action': 'list'},{'escape': false})|raw }}
-        {{ Html.link('Séances', {'controller':'Movie', 'action': 'list'})|raw }}
-        {{ Html.link('Bandes-annonces', {'controller':'Movie', 'action': 'list'})|raw }}
+        <a href="#"><span class="tiket">Séances</span></a>
+        <a href="#"><span class="play">Bandes-annonces</span></a>
         {{ Html.link('Casting', {'controller':'Movie', 'action': 'list'})|raw }}
         {{ Html.link('Critiques et spectateurs', {'controller':'Movie', 'action': 'list'})|raw }}
         {{ Html.link('Critique presse', {'controller':'Movie', 'action': 'list'})|raw }}

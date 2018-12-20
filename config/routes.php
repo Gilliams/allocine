@@ -90,7 +90,9 @@ Router::scope('/', function (RouteBuilder $routes) {
      $routes->connect('/producteurs', ['controller' => 'Producer', 'action' => 'list']);
      $routes->connect('/seances', ['controller' => 'Session', 'action' => 'list']);
      $routes->connect('/cinemas', ['controller' => 'Cinema', 'action' => 'list']);
+     $routes->connect('/cinema/:id', ['controller' => 'Cinema', 'action' => 'cinema'])->setPass(['id']);
      $routes->connect('/villes', ['controller' => 'City', 'action' => 'list']);
+     $routes->connect('/ville/:id', ['controller' => 'City', 'action' => 'ville'])->setPass(['id']);
 
 
     /**
