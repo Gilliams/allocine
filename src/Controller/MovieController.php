@@ -113,6 +113,7 @@ class MovieController extends AppController
             'Producers.Movies',
             'Cinemas',
             'Sessions',
+            'Sessions.Movies',
         ]);
 
         // -> Set Actor to view
@@ -139,7 +140,9 @@ class MovieController extends AppController
             'Producers',
             'Producers.Movies',
             'Comments',
-            'Comments.Movies'
+            'Comments.Movies',
+            'Sessions',
+            'Sessions.Movies'
         ])
         ->first();
 

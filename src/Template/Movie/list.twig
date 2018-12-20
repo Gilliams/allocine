@@ -35,7 +35,9 @@
                 {% endfor %}
             </td>
             <td>
-                {{ Html.link(movie.session.time, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }} <br>
+                {% for session in movie.sessions %}
+                    {{ Html.link(session.time, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }}
+                {% endfor %}
             </td>
             <td>
                 {{ Html.link(movie.cinema.name, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id})|raw }} <br>

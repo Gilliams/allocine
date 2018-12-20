@@ -61,7 +61,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-md-8">
             <div class="row data">
@@ -76,9 +76,7 @@
                 {% endfor %}
             </div>
             {% for movie in cinema.movies %}
-                {% for session in cinema.sessions %}
-                <div class="card-movie {{session.date|date('d-m-Y')}}">
-                {% endfor %}
+                <div class="card-movie">
                     <div class="row ">
                         <div class="col-md-4">
                             {{Html.image(movie.img_url)|raw}}
@@ -111,6 +109,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row card-info">
                         <div class="row">
                             <p>En VF, Numérique</p>

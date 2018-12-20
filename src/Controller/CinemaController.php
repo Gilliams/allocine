@@ -46,26 +46,39 @@ class CinemaController extends AppController
     }
 
     public function cinema($id){
+        
         $cinema = TableRegistry::get('Cinemas')->find()
         ->where([
             ('Cinemas.id') => $id
         ])
         ->contain([
             'Citys',
-            // Range les heures de seances par ordre croissant
             'Sessions',
-            'Sessions.Cinemas'=>function ($q) {
-                return $q->group(['date']);
-            } ,
-            'Movies',
-            'Movies.Cinemas',
-            'Movies.Producers',
-            'Movies.Actors',
+            'Sessions.Movies',
+            'Sessions.Movies.Producers',
+            'Sessions.Movies.Actors',
         ])
         ->first();
-        // 
-        // debug($cinema);
-        // die();
+
+        $movies = [];
+        foreach($cinema->sessions as $session) {
+            $date = $session->date->format('Y-m-d');
+            if(!isset($movies[$date])){
+                $movies[$date] = [];
+            }
+            if(!isset($movies[$date][$session->movie->id])){
+                $movies[$date][$session->movie->id] = [
+                    'movie' => $session->movie,
+                    'sessions' => []
+                ];
+            }
+            $movies[$date][$session->movie->id]['sessions'][] = $session->time;
+        }
+
+
+
+        debug($movies);
+        die();
 
 
         $weeks = [];
