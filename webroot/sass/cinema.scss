@@ -172,40 +172,9 @@
         border: 1px solid #ececec;
         background-color: $white;
     }
-    #carousel{
-        .date{
-            text-align: center;
-            text-transform: uppercase;
-            width: 100px;
-            background-color: red;
-        }
-        a{
-            height: 100px !important;
-        }
-        .carousel-control-next{
-            height: 100px !important;
-            border: 1px solid #d5d5d5;
-            position: relative !important;
-            .carousel-control-next-icon{
-                color: $black;
-                background-color: red;
-            }
-        }
-        .carousel-control-prev{
-            height: 100px !important;
-            position: relative !important;
-            border: 1px solid #d5d5d5;
-            .carousel-control-prev-icon{
-                color: $black;
-                background-color: red;
-            }
-        }
-        .carousel-inner{
-            width: 500px;
-        }
-    }
     .card-movie{
         margin: 40px 0px 40px 0px;
+        display: none;
     }
     .card-info{
         p{

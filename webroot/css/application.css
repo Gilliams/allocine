@@ -1077,31 +1077,9 @@ footer {
   cursor: pointer;
   border: 1px solid #ececec;
   background-color: #fff; }
-#cinema #carousel .date {
-  text-align: center;
-  text-transform: uppercase;
-  width: 100px;
-  background-color: red; }
-#cinema #carousel a {
-  height: 100px !important; }
-#cinema #carousel .carousel-control-next {
-  height: 100px !important;
-  border: 1px solid #d5d5d5;
-  position: relative !important; }
-  #cinema #carousel .carousel-control-next .carousel-control-next-icon {
-    color: #1E1E1E;
-    background-color: red; }
-#cinema #carousel .carousel-control-prev {
-  height: 100px !important;
-  position: relative !important;
-  border: 1px solid #d5d5d5; }
-  #cinema #carousel .carousel-control-prev .carousel-control-prev-icon {
-    color: #1E1E1E;
-    background-color: red; }
-#cinema #carousel .carousel-inner {
-  width: 500px; }
 #cinema .card-movie {
-  margin: 40px 0px 40px 0px; }
+  margin: 40px 0px 40px 0px;
+  display: none; }
 #cinema .card-info p {
   font-weight: 700; }
 #cinema .card-info .row {

@@ -46,7 +46,7 @@ class CinemaController extends AppController
     }
 
     public function cinema($id){
-        
+
         $cinema = TableRegistry::get('Cinemas')->find()
         ->where([
             ('Cinemas.id') => $id
@@ -76,38 +76,35 @@ class CinemaController extends AppController
         }
 
 
-
-        debug($movies);
-        die();
+        //
+        // debug($movies);
+        // die();
 
 
         $weeks = [];
 
         $current_week = date('W');
-        $stop_date = '2018-12-17 12:12:00';
+        $stop_date = date('Y-m-d H:i:s');
         // $stop_date = date('Y-m-d H:i:s');
-        $current_day = date('w');
-        $current_numb = date('d');
-        $current_month = date('F');
         $add_week = 0;
 
         for($i=0;$i<5;$i++){
             for($j=0;$j<7;$j++){
-               $weeks[$current_week+$i][$j]['days'] =date('l', strtotime($stop_date .'+'.$j.'day'));
-               $weeks[$current_week+$i][$j]['num'] =date('j', strtotime($stop_date .'+'.$j.'day'));
-               $weeks[$current_week+$i][$j]['month'] =date('F', strtotime($stop_date .'+'.$j.'day'));
+               $weeks[$current_week+$i][$j]['days'] = strtotime($stop_date .'+'.$j.'day');
+               $weeks[$current_week+$i][$j]['num'] = strtotime($stop_date .'+'.$j.'day');
+               $weeks[$current_week+$i][$j]['month'] = strtotime($stop_date .'+'.$j.'day');
             }
              $stop_date = date('Y-m-d H:i:s', strtotime($stop_date . ' +7 day'));
         }
 
         // debug($weeks);
 
-
+        
         // die();
 
 
 
-        $this->set(compact('cinema','weeks'));
+        $this->set(compact('cinema','weeks','movies'));
 
     }
 

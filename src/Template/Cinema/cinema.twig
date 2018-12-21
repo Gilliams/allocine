@@ -63,39 +63,40 @@
     </div>
 
     <div class="row">
-        <div class="col-md-8">
+         <div class="col-md-12">
             <div class="row data">
                 {% for week in weeks %}
                     {% for item in week %}
-                        <div class="row {{ item.num }}-{{ item.month }}">
-                            <div class="day">{{ item.days|length > 3 ? item.days|slice(0, 3) ~ '.' : item.days }}</div>
-                            <div class="num">{{ item.num }}</div>
-                            <div class="month">{{ item.month }}</div>
+                        <div class="row" data-date='{{item.days|date('Y-m-d')}}'>
+                            <div class="day">{{ item.days|date('D') }}</div>
+                            <div class="num">{{ item.num|date('j') }}</div>
+                            <div class="month">{{ item.month|date('F') }}</div>
                         </div>
                     {% endfor %}
                 {% endfor %}
             </div>
-            {% for movie in cinema.movies %}
-                <div class="card-movie">
+            {% for key,movie in movies %}
+                <div class="card-movie" data-date="{{key|date('Y-m-d')}}">
+                    {% for item in movie %}
                     <div class="row ">
                         <div class="col-md-4">
-                            {{Html.image(movie.img_url)|raw}}
+                            {{Html.image(item.movie.img_url)|raw}}
                         </div>
                         <div class="col-md-8">
                             <div class="row">
-                                <h4>{{Html.link(movie.name, '/film/' ~ '/' ~ movie.id)|raw}}</h4>
+                                <h4>{{Html.link(item.movie.name, '/film/' ~ '/' ~ movie.id)|raw}}</h4>
                             </div>
                             <div class="row">
-                                {{movie.created|date('d F Y')}} / {{movie.duration}}
+                                {{movie.created|date('d F Y')}} / {{item.movie.duration}}
                             </div>
                             <div class="row">
                                 <span>De
-                                    {{Html.link(movie.producer.name, 'producter' ~ '/' ~ movie.producer.id)|raw}}
+                                    {{Html.link(item.movie.producer.name, 'producter' ~ '/' ~ movie.producer.id)|raw}}
                                 </span>
                             </div>
                             <div class="row">
                                 <span>Avec
-                                    {% for actor in movie.actors %}
+                                    {% for actor in item.movie.actors %}
                                     <a href="/acteur/{{actor.id}}">
                                         {{actor.firstname}}
                                         {{actor.lastname}}
@@ -105,7 +106,7 @@
 
                             </div>
                             <div class="row">
-                                {{movie.contain|length > 200 ? movie.contain|slice(0, 250) ~ '...' : movie.contain}}
+                                {{item.movie.contain|length > 200 ? item.movie.contain|slice(0, 250) ~ '...' : item.movie.contain}}
                             </div>
                         </div>
                     </div>
@@ -115,16 +116,32 @@
                             <p>En VF, Numérique</p>
                         </div>
                         <div class="row">
-                            {% for session in cinema.sessions %}
-                                <div class="time">
-                                    <span>{{session.time|date('H:i')}}</span>
-                                </div>
+                            {% for date in item.sessions %}
+                                    <div class="time">
+                                        <span>{{date.time|date('H:i')}}</span>
+                                    </div>
                             {% endfor %}
                         </div>
                     </div>
                 </div>
+
+                {% endfor %}
             {% endfor %}
         </div>
-    </div>
 
+        <script type="text/javascript">
+
+          $(document).ready(function(){
+            $('.data').slick({
+                slidesToShow: 7,
+                slidesToScroll: 6
+            });
+            $('.slick-slide').on('click',function(){
+                console.log($(this).data('date'));
+                var date = $(this).data('date');
+                $('.card-movie[data-date="'+date+'"]').css('display','block');
+            });
+          });
+        </script>
+    </div>
 </section>
