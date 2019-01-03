@@ -78,7 +78,8 @@
             {% for key,movie in movies %}
                 <div class="card-movie" data-date="{{key|date('Y-m-d')}}">
                     {% for item in movie %}
-                    <div class="row ">
+                    <!-- <pre>{{dump(item)}}</pre> -->
+                    <div class="row hidden">
                         <div class="col-md-4">
                             {{Html.image(item.movie.img_url)|raw}}
                         </div>
@@ -103,7 +104,6 @@
                                     </a>
                                     {% endfor %}
                                 </span>
-
                             </div>
                             <div class="row">
                                 {{item.movie.contain|length > 200 ? item.movie.contain|slice(0, 250) ~ '...' : item.movie.contain}}
@@ -111,16 +111,18 @@
                         </div>
                     </div>
 
-                    <div class="row card-info">
+                    <div class="row card-info hidden">
                         <div class="row">
                             <p>En VF, Numérique</p>
                         </div>
                         <div class="row">
-                            {% for date in item.sessions %}
-                                    <div class="time">
-                                        <span>{{date.time|date('H:i')}}</span>
-                                    </div>
+                            {% for session in item.sessions %}
+                                <pre>{{dump(session)}}</pre>
+                                <div class="time">
+                                    <span>{{session.time|date('H:i', "Europe/Paris")}}</span>
+                                </div>
                             {% endfor %}
+
                         </div>
                     </div>
                 </div>
@@ -136,11 +138,42 @@
                 slidesToShow: 7,
                 slidesToScroll: 6
             });
-            $('.slick-slide').on('click',function(){
-                console.log($(this).data('date'));
+
+            // Instancie les films, si ils ont la date actuelle alors ils sont affichés
+
+            var today = moment().format('YYYY-MM-DD ');
+
+            var movie_now = $('.card-movie');
+            if($(movie_now).data('date') == today){
+                $('.card-movie[data-date="'+$(movie_now)+'"]').show();
+            }else{
+                $('.card-movie').hide();
+            }
+
+
+            // Si l'on recherche un film alors les films sont comparés à la date souhaitée
+
+
+            $('.slick-slide').on('click',function(e){
+                // Cible l'enfant de slick-slide
+                var element = e.delegateTarget;
+
                 var date = $(this).data('date');
-                $('.card-movie[data-date="'+date+'"]').css('display','block');
+                var movie = $('.card-movie[data-date="'+date+'"]');
+
+
+                $( ".card-movie" ).each(function() {
+                  $('.card-movie').hide();
+
+                })
+
+
+                if($(movie).data('date') == $(element).data('date')){
+                    $('.card-movie[data-date="'+$(movie).data('date')+'"]').show();
+                }
+
             });
+
           });
         </script>
     </div>

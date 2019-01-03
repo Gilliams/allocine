@@ -76,7 +76,6 @@ class CinemaController extends AppController
         }
 
 
-        //
         // debug($movies);
         // die();
 
@@ -99,7 +98,7 @@ class CinemaController extends AppController
 
         // debug($weeks);
 
-        
+
         // die();
 
 
