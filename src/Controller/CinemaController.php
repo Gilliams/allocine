@@ -31,7 +31,7 @@ class CinemaController extends AppController
 {
 
 
-    public function list(){
+    public function index(){
         $cinemas = TableRegistry::get('Cinemas')->find()
         ->contain([
             'Citys',
@@ -41,11 +41,9 @@ class CinemaController extends AppController
             'Movies.Cinemas'
         ]);
         $this->set(compact('cinemas'));
-        // debug($sessions);
-        // die();
     }
 
-    public function cinema($id){
+    public function view($id){
 
         $cinema = TableRegistry::get('Cinemas')->find()
         ->where([
@@ -75,16 +73,10 @@ class CinemaController extends AppController
             $movies[$date][$session->movie->id]['sessions'][] = $session->time;
         }
 
-
-        // debug($movies);
-        // die();
-
-
         $weeks = [];
 
         $current_week = date('W');
         $stop_date = date('Y-m-d H:i:s');
-        // $stop_date = date('Y-m-d H:i:s');
         $add_week = 0;
 
         for($i=0;$i<5;$i++){
@@ -95,12 +87,6 @@ class CinemaController extends AppController
             }
              $stop_date = date('Y-m-d H:i:s', strtotime($stop_date . ' +7 day'));
         }
-
-        // debug($weeks);
-
-
-        // die();
-
 
 
         $this->set(compact('cinema','weeks','movies'));
