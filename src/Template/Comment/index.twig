@@ -36,7 +36,7 @@
                 {{ comment.date|date('d/m/Y') }}
             </td>
             <td>
-                {{ Html.link(comment.movie.name, {'controller':'Movie', 'action': 'movie' ~ '/' ~ movie.id})|raw }}<br>
+                {{ Html.link(comment.movie.name, {'controller':'Movie', 'action': 'view' ~ '/' ~ movie.id})|raw }}<br>
             </td>
             <td>
                 {{ Html.link('Edit','/comment/' ~ comment.id)|raw }}

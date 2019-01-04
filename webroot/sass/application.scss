@@ -1,18 +1,19 @@
-@import 'config';
-@import 'helpers';
-@import 'utilities';
-@import 'reset';
-@import 'base';
-@import 'main';
 
-@import 'slider';
-@import 'homePage';
-@import 'movie';
-@import 'actor';
+/* Mixins */
+@import 'mixins/config';
+@import 'mixins/helpers';
+@import 'mixins/utilities';
+@import 'mixins/reset';
 
 /* Layouts */
 @import 'layouts/header';
 @import 'layouts/footer';
+@import 'layouts/main';
 
 /* Components */
 @import 'components/cinema';
+@import 'components/base';
+@import 'components/slider';
+@import 'components/homePage';
+@import 'components/movie';
+@import 'components/actor';

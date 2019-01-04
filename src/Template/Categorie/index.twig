@@ -19,9 +19,9 @@
             <td>
                 {{ categorie.name|capitalize }}
             </td>
-            <td>    
+            <td>
                 {% for movie in categorie.movies %}
-                {{ Html.link(movie.name, {'controller':'Movie', 'action': 'movie' ~ '/' ~ movie.id})|raw }}<br>
+                {{ Html.link(movie.name, {'controller':'Movie', 'action': 'view' ~ '/' ~ movie.id})|raw }}<br>
                 {% endfor %}
             </td>
             <td>

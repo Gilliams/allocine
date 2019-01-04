@@ -32,7 +32,7 @@ class ProducerController extends AppController
 
 
 
-    public function producerMovie($id){
+    public function view($id){
 
         $movie = TableRegistry::get('Movies')->find()
         ->where([
@@ -72,7 +72,7 @@ class ProducerController extends AppController
     /**
      * List the Producers
      */
-    public function list(){
+    public function index(){
 
         // -> Find Producer and turns it into an array
         $producers = TableRegistry::get('Producers')->find()

@@ -29,7 +29,7 @@ use Cake\ORM\TableRegistry;
  */
 class SessionController extends AppController
 {
-    public function list(){
+    public function index(){
         $sessions = TableRegistry::get('Sessions')->find()
         ->contain([
             'Movies',

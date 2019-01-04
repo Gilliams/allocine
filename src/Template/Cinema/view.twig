@@ -63,7 +63,7 @@
     </div>
 
     <div class="row">
-         <div class="col-md-12">
+         <div class="col-md-8">
             <div class="row data">
                 {% for week in weeks %}
                     {% for item in week %}
@@ -78,43 +78,37 @@
             {% for key,movie in movies %}
 
                 <div class="card-movie" data-date="{{key|date('Y-m-d')}}">
-
                     {% for item in movie %}
-                    <div class="row">
+                    <div class="row card-entity">
                         <div class="col-md-4">
                             {{Html.image(item.movie.img_url)|raw}}
                         </div>
                         <div class="col-md-8">
-                            <div class="row">
-                                <h4>{{Html.link(item.movie.name, '/film/' ~ '/' ~ movie.id)|raw}}</h4>
+                            <h3>{{Html.link(item.movie.name, '/film/' ~ '/' ~ movie.id)|raw}}</h3>
+                            <div class="infos">
+                                <p>{{movie.created|date('d F Y')}} / {{item.movie.duration}} /
+                                {% for categorie in item.movie.categories %}
+                                    {{ Html.link(categorie.name, {'controller':'Categorie', 'action': 'categorie' ~ '/' ~ categorie.id}, {'class':'categorie'})|raw }}
+                                {% endfor %}
+                                / {{item.movie.nationality}}
+                                </p>
+                                <p>De {{ Html.link(item.movie.producer.name, 'producter' ~ '/' ~ movie.producer.id)|raw }}</p>
+
+                                <p>Avec
+                                {% for actor in item.movie.actors %}
+                                <a href="/acteur/{{actor.id}}" class="actor">
+                                    {{actor.firstname}}
+                                    {{actor.lastname}}
+                                </a>
+                                {% endfor %}
+                                </p>
                             </div>
-                            <div class="row">
-                                {{movie.created|date('d F Y')}} / {{item.movie.duration}}
-                            </div>
-                            <div class="row">
-                                <span>De
-                                    {{Html.link(item.movie.producer.name, 'producter' ~ '/' ~ movie.producer.id)|raw}}
-                                </span>
-                            </div>
-                            <div class="row">
-                                <span>Avec
-                                    {% for actor in item.movie.actors %}
-                                    <a href="/acteur/{{actor.id}}">
-                                        {{actor.firstname}}
-                                        {{actor.lastname}}
-                                    </a>
-                                    {% endfor %}
-                                </span>
-                            </div>
-                            <div class="row">
-                                {{item.movie.contain|length > 200 ? item.movie.contain|slice(0, 250) ~ '...' : item.movie.contain}}
-                            </div>
+                            <p class="synopsis">{{item.movie.contain|raw}}</p>
                         </div>
                     </div>
-
                     <div class="row card-info">
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 format">
                                <p>En VF, Numérique</p>
                             </div>
                         </div>
@@ -122,8 +116,11 @@
                             <div class="col-lg-12">
                                <ul class="sessions">
                                {% for session in item.sessions %}
-                                   <li>
-                                      {{ session|date('H:i') }}
+                                   <li class="time">
+                                       <div>
+                                           <span class="item-value">{{ session|date('H:i') }}</span>
+                                           <span class="item-booking">Réserver</span>
+                                       </div>
                                    </li>
                                {% endfor %}
                                </ul>
@@ -137,6 +134,9 @@
 
 
             {% endfor %}
+        </div>
+        <div class="col-md-4">
+
         </div>
 
         <script type="text/javascript">

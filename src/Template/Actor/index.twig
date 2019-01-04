@@ -37,12 +37,12 @@
                 </td>
                 <td>
                     {% for movie in actor.movies %}
-                    {{ Html.link(movie.name, {'controller':'Movie', 'action': 'movie' ~ '/' ~ movie.id})|raw }}<br>
+                    {{ Html.link(movie.name, {'controller':'Movie', 'action': 'view' ~ '/' ~ movie.id})|raw }}<br>
                     {% endfor %}
                 </td>
                 <td>
                     <button type="button" name="button" class="btn">
-                        {{ Html.link('Fiche', {'controller':'Movie', 'action': 'actor' ~ '/' ~ actor.id})|raw }}<br>
+                        {{ Html.link('Fiche', {'controller':'Actor', 'action': 'view' ~ '/' ~ actor.id})|raw }}<br>
                     </button>
                 </td>
                 <td>

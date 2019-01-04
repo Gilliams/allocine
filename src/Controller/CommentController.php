@@ -54,7 +54,7 @@ class CommentController extends AppController
     /**
      * List the Comments
      */
-    public function list(){
+    public function index(){
 
         // -> Find Comment and turns it into an array
         $comments = TableRegistry::get('Comments')->find()

@@ -1,12 +1,11 @@
 
-
-{{ Form.create('Post')|raw }}
-    {{ Form.control('name',{'label': __('Nom du film')})|raw }}
-    {{ Form.control('contain',{'type': 'textarea','label': __('Description du film')})|raw }}
-    {{ Form.control('created',{'label': __('Sortie du film')})|raw }}
-    {{ Form.control('producer_id',{'type': 'select','label': __('ID du producteur')})|raw }}
-    {{ Form.control('nationality',{'label': __('Nationalité du film')})|raw }}
-    {{ Form.control('duration',{'label': __('Durée du film')})|raw }}
-    {{ Form.control('img_url',{'label': __('Affiche du film')})|raw }}
+{{ Form.create('Post',{'class':'form-group'})|raw }}
+    {{ Form.control('name',{'class':'form-control','label': __('Nom du film'), 'placeholder':__('Nom du film')})|raw }}
+    {{ Form.control('contain',{'class':'form-control','type': 'textarea','label': __('Description du film')})|raw }}
+    {{ Form.control('created',{'class':'form-control','label': __('Sortie du film')})|raw }}
+    {{ Form.control('producer_id',{'class':'form-control','type': 'select','label': __('ID du producteur')})|raw }}
+    {{ Form.control('nationality',{'class':'form-control','label': __('Nationalité du film')})|raw }}
+    {{ Form.control('duration',{'class':'form-control','label': __('Durée du film')})|raw }}
+    {{ Form.control('img_url',{'class':'form-control','label': __('Affiche du film')})|raw }}
     {{ Form.button('Ajouter')|raw }}
 {{ Form.end()|raw }}

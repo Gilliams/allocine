@@ -68,11 +68,11 @@
                     <div class="col-md-9 pages">
                         <ul >
                             <div class="bold">
-                                <li>{{ Html.link(Html.image('home-button.png', {'class':'icone'}), {'controller':'Movie', 'action': 'list'},{'escape': false})|raw }}</li>
-                                <li>{{ Html.link('Cinéma', {'controller':'Movie', 'action': 'list'})|raw }}</li>
-                                <li>{{ Html.link('Séries', {'controller':'Movie', 'action': 'list'})|raw }}</li>
-                                <li>{{ Html.link('émissions', {'controller':'Movie', 'action': 'list'})|raw }}</li>
-                                <li>{{ Html.link('news', {'controller':'Movie', 'action': 'list'})|raw }}</li>
+                                <li>{{ Html.link(Html.image('home-button.png', {'class':'icone'}),'/',{'escape':false})|raw }}</li>
+                                <li>{{ Html.link('Cinéma', {'controller':'Movie', 'action': 'index'})|raw }}</li>
+                                <li>{{ Html.link('Séries', {'controller':'Movie', 'action': 'index'})|raw }}</li>
+                                <li>{{ Html.link('émissions', {'controller':'Movie', 'action': 'index'})|raw }}</li>
+                                <li>{{ Html.link('news', {'controller':'Movie', 'action': 'index'})|raw }}</li>
                             </div>
                             <li>{{ Html.image('music-player.png', {'class':'icone'})|raw }}{{ Html.link('B.O', {'controller':'Movie', 'action': 'list'})|raw }}</li>
                             <li>{{ Html.link('TV', {'controller':'Movie', 'action': 'list'})|raw }}</li>

@@ -174,29 +174,80 @@
     }
     .card-movie{
         margin: 40px 0px 40px 0px;
+
         display: none;
         &.active {
            display: block;
         }
-
-    }
-    .card-info{
-        p{
-            font-weight: $font-weight--bold;
+        h3 a{
+            color: $color-secondary;
+            &:hover{
+                color: $color-blue--darker;
+            }
         }
-        .row{
-            width: 100%;
-            padding-left: 15px;
-            padding-right: 15px;
+        .actor:not(:first-child):before{
+            content: ',';
         }
-        .time{
-            margin: 5px;
-            padding: 10px;
-            text-align: center;
-            border-radius: 3px;
-            background-color: $color-primary;
-            font-weight: $font-weight--bold;
-            color: $white;
+        .synopsis{
+            margin-top: 20px;
+            margin-bottom: 0px;
+        }
+        .card-entity{
+            margin-bottom: 20px;
+            .infos{
+                p{
+                    font-size: 15px;
+                    line-height: 19px;
+                    margin: 6px 0 6px;
+                }
+                .categorie:not(:first-child):before{
+                    content: ',';
+                }
+                .categorie{
+                    color: $color-secondary;
+                }
+            }
+        }
+        .card-info{
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+            .format{
+                p{
+                    font-weight: $font-weight--bold;
+                    margin-bottom: 0px;
+                }
+            }
+            .row{
+                width: 100%;
+            }
+            ul{
+                padding-left: 0px;
+                .time{
+                    display: inline-block;
+                    margin: 6px;
+                    text-align: center;
+                    border-radius: 3px;
+                    background-color: $color-primary;
+                    font-weight: $font-weight--bold;
+                    color: $white;
+                    div{
+                        display:flex;
+                        flex-direction: column;
+                        padding: 5px;
+                        .item{
+                            font-family: 'Arial'!important;
+                            &-value{
+                                font-size: 17px;
+                                line-height: 17px;
+                            }
+                            &-booking{
+                                font-size: 15px;
+                                line-height: 15px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

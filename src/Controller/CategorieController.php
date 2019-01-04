@@ -33,7 +33,7 @@ class CategorieController extends AppController
         /**
          * List a Categorie
          */
-        public function categorie($id){
+        public function view($id){
 
             // -> Find Categorie and turns it into an array
             $categorie = TableRegistry::get('Categories')->find()
@@ -75,7 +75,7 @@ class CategorieController extends AppController
     /**
      * List the Categories
      */
-    public function list(){
+    public function index(){
 
         // -> Find Categorie and turns it into an array
         $categories = TableRegistry::get('Categories')->find()

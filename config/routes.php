@@ -78,28 +78,28 @@ Router::scope('/', function (RouteBuilder $routes) {
      // $routes->connect('/acteur/*', ['controller' => 'Actor', 'action' => 'update']);
      // $routes->connect('/acteurs/*', ['controller' => 'Actor', 'action' => 'list']);
 
-     $routes->connect('/acteurs', ['controller' => 'Actor', 'action' => 'list']);
-     $routes->connect('/acteur/:id', ['controller' => 'Actor', 'action' => 'actor'])->setPass(['id']);
+     $routes->connect('/acteurs', ['controller' => 'Actor', 'action' => 'index']);
+     $routes->connect('/acteur/:id', ['controller' => 'Actor', 'action' => 'view'])->setPass(['id']);
 
-     $routes->connect('/films', ['controller' => 'Movie', 'action' => 'list']);
-     $routes->connect('/film/:id', ['controller' => 'Movie', 'action' => 'movie'])->setPass(['id']);
+     $routes->connect('/films', ['controller' => 'Movie', 'action' => 'index']);
+     $routes->connect('/film/:id', ['controller' => 'Movie', 'action' => 'view'])->setPass(['id']);
      $routes->connect('/film/*', ['controller' => 'Movie', 'action' => 'update']);
 
-     $routes->connect('/categories', ['controller' => 'Categorie', 'action' => 'list']);
-     $routes->connect('/categorie/:id', ['controller' => 'Categorie', 'action' => 'categorie'])->setPass(['id']);
+     $routes->connect('/categories', ['controller' => 'Categorie', 'action' => 'index']);
+     $routes->connect('/categorie/:id', ['controller' => 'Categorie', 'action' => 'view'])->setPass(['id']);
 
-     $routes->connect('/commentaires', ['controller' => 'Comment', 'action' => 'list']);
+     $routes->connect('/commentaires', ['controller' => 'Comment', 'action' => 'index']);
      $routes->connect('/commentaire/*', ['controller' => 'Comment', 'action' => 'update']);
 
-     $routes->connect('/producteurs', ['controller' => 'Producer', 'action' => 'list']);
+     $routes->connect('/producteurs', ['controller' => 'Producer', 'action' => 'index']);
 
-     $routes->connect('/seances', ['controller' => 'Session', 'action' => 'list']);
+     $routes->connect('/seances', ['controller' => 'Session', 'action' => 'index']);
 
      $routes->connect('/cinemas', ['controller' => 'Cinema', 'action' => 'index']);
      $routes->connect('/cinema/:id', ['controller' => 'Cinema', 'action' => 'view'])->setPass(['id']);
 
-     $routes->connect('/villes', ['controller' => 'City', 'action' => 'list']);
-     $routes->connect('/ville/:id', ['controller' => 'City', 'action' => 'ville'])->setPass(['id']);
+     $routes->connect('/villes', ['controller' => 'City', 'action' => 'index']);
+     $routes->connect('/ville/:id', ['controller' => 'City', 'action' => 'view'])->setPass(['id']);
 
 
     /**

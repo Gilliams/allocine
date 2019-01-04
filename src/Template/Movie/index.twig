@@ -21,7 +21,7 @@
                 {{ movie.id }}
             </td>
             <td>
-                {{ Html.link(movie.name, {'controller':'Movie', 'action': 'movie' ~ '/' ~ movie.id})|raw }}
+                {{ Html.link(movie.name, {'controller':'Movie', 'action': 'view' ~ '/' ~ movie.id})|raw }}
             </td>
             <td>
                 {{ movie.contain|length > 50 ? movie.contain|slice(0, 50) ~ '...' : movie.contain  }}

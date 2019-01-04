@@ -102,7 +102,7 @@ class MovieController extends AppController
     /**
      * List the Actors
      */
-    public function list(){
+    public function index(){
 
         // -> Find Actor and turns it into an array
         $movies = TableRegistry::get('Movies')->find()
@@ -127,7 +127,7 @@ class MovieController extends AppController
     /**
      * List a Movie
      */
-    public function movie($id){
+    public function view($id){
 
         // -> Find Actor and turns it into an array
         $movie = TableRegistry::get('Movies')->find()

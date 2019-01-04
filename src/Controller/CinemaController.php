@@ -55,6 +55,7 @@ class CinemaController extends AppController
             'Sessions.Movies',
             'Sessions.Movies.Producers',
             'Sessions.Movies.Actors',
+            'Sessions.Movies.Categories',
         ])
         ->first();
 
@@ -67,6 +68,7 @@ class CinemaController extends AppController
             if(!isset($movies[$date][$session->movie->id])){
                 $movies[$date][$session->movie->id] = [
                     'movie' => $session->movie,
+                    'categories' => $session->movie->categories,
                     'sessions' => []
                 ];
             }
@@ -90,7 +92,6 @@ class CinemaController extends AppController
 
 
         $this->set(compact('cinema','weeks','movies'));
-
     }
 
 }

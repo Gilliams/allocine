@@ -29,7 +29,7 @@ use Cake\ORM\TableRegistry;
  */
 class CityController extends AppController
 {
-    public function list(){
+    public function index(){
         $citys = TableRegistry::get('Citys')->find()
         ->contain([
             'Cinemas'

@@ -31,7 +31,7 @@ class ActorController extends AppController
 {
 
 
-    public function actor($id){
+    public function view($id){
 
         $actor = TableRegistry::get('Actors')->find()
         ->where([
@@ -76,7 +76,7 @@ class ActorController extends AppController
     /**
      * List the Actors
      */
-    public function list(){
+    public function index(){
 
         // -> Find Actor and turns it into an array
         $actors = TableRegistry::get('Actors')->find()
